@@ -1,0 +1,1555 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Training – Vianmax Techno Ventures</title>
+    <meta name="description"
+        content="Industry-led training programs by Vianmax Academy — corporate training, technical workshops, and internship programs for aspiring software engineers.">
+    <meta name="robots" content="index, follow">
+    <link rel="canonical" href="https://www.vianmax.com/training">
+    <meta property="og:title" content="Training – Vianmax Techno Ventures">
+    <meta property="og:description"
+        content="Bridge the gap between education and industry with Vianmax Academy training programs.">
+    <meta property="og:url" content="https://www.vianmax.com/training">
+    <meta name="theme-color" content="#E3001B">
+    <link rel="icon" type="image/png" href="assets/favicon.png">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="css/styles.css">
+
+    <style>
+        /* Training Visual */
+        .training-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: clamp(28px, 5vw, 64px);
+            align-items: center;
+        }
+
+        .training-visual {
+            position: relative;
+            border-radius: var(--radius-xl);
+            overflow: hidden;
+            background: linear-gradient(135deg, rgba(227, 0, 27, .88), rgba(159, 0, 20, .85), rgba(96, 0, 16, .88)), url('https://images.unsplash.com/photo-1524178232363-1fb2b075b655?w=800&q=80') center/cover no-repeat;
+            padding: clamp(28px, 4vw, 48px) clamp(20px, 3.5vw, 36px);
+            min-height: clamp(260px, 35vw, 380px);
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
+
+        .training-visual::before {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background-image: linear-gradient(rgba(255, 255, 255, .05) 1px, transparent 1px), linear-gradient(90deg, rgba(255, 255, 255, .05) 1px, transparent 1px);
+            background-size: 28px 28px;
+            pointer-events: none;
+        }
+
+        .course-list {
+            position: relative;
+            z-index: 2;
+            display: flex;
+            flex-direction: column;
+            gap: 14px;
+        }
+
+        .course-item {
+            display: flex;
+            align-items: center;
+            gap: clamp(10px, 1.5vw, 14px);
+            background: rgba(255, 255, 255, .12);
+            backdrop-filter: blur(4px);
+            border-radius: var(--radius-md);
+            padding: clamp(12px, 1.5vw, 16px) clamp(14px, 2vw, 20px);
+            color: #fff;
+            transition: all var(--transition);
+        }
+
+        .course-item:hover {
+            background: rgba(255, 255, 255, .2);
+            transform: translateX(6px);
+        }
+
+        .course-icon {
+            width: 36px;
+            height: 36px;
+            border-radius: 50%;
+            background: rgba(255, 255, 255, .15);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-shrink: 0;
+        }
+
+        .course-icon svg {
+            width: 16px;
+            height: 16px;
+        }
+
+        .course-name {
+            font-size: clamp(13px, 1.5vw, 14.5px);
+            font-weight: 600;
+        }
+
+        .training-points {
+            display: flex;
+            flex-direction: column;
+            gap: clamp(18px, 3vw, 28px);
+            margin-top: clamp(18px, 3vw, 28px);
+        }
+
+        .training-point {
+            display: flex;
+            gap: 18px;
+        }
+
+        .point-num {
+            width: clamp(36px, 4.5vw, 44px);
+            height: clamp(36px, 4.5vw, 44px);
+            border-radius: 50%;
+            flex-shrink: 0;
+            background: var(--red-subtle);
+            color: var(--red);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: clamp(13px, 1.6vw, 16px);
+            font-weight: 700;
+        }
+
+        .point-title {
+            font-size: clamp(14px, 1.6vw, 16px);
+            font-weight: 700;
+            margin-bottom: 6px;
+        }
+
+        .point-desc {
+            font-size: clamp(13px, 1.4vw, 14px);
+            color: var(--text-secondary);
+            line-height: 1.7;
+        }
+
+        /* Course Catalog */
+        .course-tabs {
+            display: flex;
+            gap: 6px;
+            flex-wrap: wrap;
+            margin-bottom: clamp(24px, 4vw, 40px);
+            justify-content: center;
+        }
+
+        .course-tab {
+            padding: clamp(8px, 1.2vw, 10px) clamp(14px, 2vw, 22px);
+            border-radius: 999px;
+            border: 1.5px solid var(--border);
+            background: var(--white);
+            font-size: clamp(12px, 1.3vw, 13.5px);
+            font-weight: 600;
+            color: var(--text-secondary);
+            cursor: pointer;
+            transition: all var(--transition);
+        }
+
+        .course-tab:hover {
+            border-color: rgba(227, 0, 27, .25);
+            color: var(--text);
+        }
+
+        .course-tab.active {
+            background: var(--red);
+            color: #fff;
+            border-color: var(--red);
+        }
+
+        .course-panel {
+            display: none;
+        }
+
+        .course-panel.active {
+            display: block;
+        }
+
+        .courses-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(min(280px, 100%), 1fr));
+            gap: clamp(16px, 2vw, 24px);
+        }
+
+        .course-card {
+            background: var(--white);
+            border: 1px solid var(--border);
+            border-radius: var(--radius-lg);
+            padding: clamp(22px, 3vw, 32px) clamp(18px, 2.5vw, 24px);
+            transition: all var(--transition);
+            position: relative;
+            overflow: hidden;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .course-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 3px;
+            background: var(--red);
+            transform: scaleX(0);
+            transition: transform .3s ease;
+        }
+
+        .course-card:hover {
+            box-shadow: var(--shadow-lg);
+            transform: translateY(-4px);
+            border-color: rgba(227, 0, 27, .15);
+        }
+
+        .course-card:hover::before {
+            transform: scaleX(1);
+        }
+
+        .course-card-title {
+            font-size: clamp(15px, 1.7vw, 17px);
+            font-weight: 700;
+            margin-bottom: 8px;
+        }
+
+        .course-card-duration {
+            display: inline-flex;
+            align-items: center;
+            gap: 5px;
+            font-size: clamp(11px, 1.2vw, 12px);
+            font-weight: 600;
+            color: var(--red);
+            background: var(--red-subtle);
+            padding: 4px 12px;
+            border-radius: 999px;
+            margin-bottom: 14px;
+        }
+
+        .course-card-desc {
+            font-size: clamp(13px, 1.4vw, 14px);
+            color: var(--text-secondary);
+            line-height: 1.7;
+            margin-bottom: 16px;
+        }
+
+        .course-tech-tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 6px;
+            margin-bottom: 18px;
+        }
+
+        .tech-tag {
+            font-size: 11px;
+            font-weight: 500;
+            color: var(--text-secondary);
+            background: var(--gray-100);
+            padding: 3px 10px;
+            border-radius: 999px;
+        }
+
+        .course-card .btn {
+            width: 100%;
+            text-align: center;
+            justify-content: center;
+            margin-top: auto;
+        }
+
+        /* Training Stats */
+        .training-stats {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(min(180px, 100%), 1fr));
+            gap: clamp(12px, 2vw, 24px);
+            margin-bottom: clamp(32px, 5vw, 56px);
+        }
+
+        .training-stat {
+            text-align: center;
+            padding: clamp(18px, 3vw, 28px) clamp(10px, 1.5vw, 16px);
+            background: var(--white);
+            border: 1px solid var(--border);
+            border-radius: var(--radius-lg);
+        }
+
+        .training-stat-num {
+            font-size: clamp(24px, 3.5vw, 32px);
+            font-weight: 800;
+            color: var(--red);
+            line-height: 1;
+            margin-bottom: 6px;
+        }
+
+        .training-stat-label {
+            font-size: clamp(11.5px, 1.3vw, 13px);
+            color: var(--text-secondary);
+            font-weight: 500;
+        }
+
+        /* Program Cards */
+        .programs-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(min(280px, 100%), 1fr));
+            gap: clamp(16px, 2vw, 24px);
+        }
+
+        .program-card {
+            background: var(--white);
+            border: 1px solid var(--border);
+            border-radius: var(--radius-lg);
+            padding: clamp(24px, 3.5vw, 36px) clamp(18px, 2.5vw, 28px);
+            transition: all var(--transition);
+            text-align: center;
+        }
+
+        .program-card:hover {
+            box-shadow: var(--shadow-lg);
+            transform: translateY(-4px);
+            border-color: rgba(227, 0, 27, .15);
+        }
+
+        .program-icon {
+            width: clamp(48px, 6vw, 64px);
+            height: clamp(48px, 6vw, 64px);
+            border-radius: 50%;
+            margin: 0 auto 22px;
+            background: var(--red-subtle);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--red);
+        }
+
+        .program-icon svg {
+            width: clamp(22px, 3vw, 28px);
+            height: clamp(22px, 3vw, 28px);
+        }
+
+        .program-name {
+            font-size: clamp(16px, 1.8vw, 18px);
+            font-weight: 700;
+            margin-bottom: 10px;
+        }
+
+        .program-desc {
+            font-size: clamp(13px, 1.4vw, 14px);
+            color: var(--text-secondary);
+            line-height: 1.7;
+            margin-bottom: 20px;
+        }
+
+        .program-features {
+            text-align: left;
+            margin-bottom: 24px;
+        }
+
+        .program-features li {
+            font-size: 13px;
+            color: var(--text-secondary);
+            padding: 6px 0 6px 20px;
+            position: relative;
+        }
+
+        .program-features li::before {
+            content: '';
+            position: absolute;
+            left: 0;
+            top: 12px;
+            width: 6px;
+            height: 6px;
+            border-radius: 50%;
+            background: var(--red);
+        }
+
+        /* Testimonials Carousel */
+        .testimonial-carousel {
+            position: relative;
+            max-width: 860px;
+            margin: 0 auto;
+        }
+
+        .testimonials-track-wrap {
+            overflow: hidden;
+            border-radius: var(--radius-lg);
+        }
+
+        .testimonials-track {
+            display: flex;
+            transition: transform 0.5s cubic-bezier(.4, 0, .2, 1);
+            will-change: transform;
+        }
+
+        .testimonial-card {
+            flex: 0 0 100%;
+            width: 100%;
+            background: var(--white);
+            border: 1px solid var(--border);
+            border-radius: var(--radius-lg);
+            padding: clamp(32px, 4vw, 52px) clamp(28px, 4vw, 56px);
+            flex-shrink: 0;
+            position: relative;
+            box-sizing: border-box;
+        }
+
+        .testimonial-quote-icon {
+            color: var(--red);
+            opacity: .15;
+            position: absolute;
+            top: 24px;
+            right: 32px;
+            font-size: 80px;
+            line-height: 1;
+            font-family: Georgia, serif;
+            font-weight: 700;
+            pointer-events: none;
+            user-select: none;
+        }
+
+        .testimonial-stars {
+            color: #fbbf24;
+            font-size: 15px;
+            margin-bottom: 20px;
+            letter-spacing: 3px;
+        }
+
+        .testimonial-text {
+            font-size: clamp(15px, 1.8vw, 17px);
+            color: var(--text);
+            line-height: 1.8;
+            font-style: italic;
+            margin-bottom: 28px;
+        }
+
+        .testimonial-author {
+            display: flex;
+            align-items: center;
+            gap: 14px;
+            border-top: 1px solid var(--border);
+            padding-top: 20px;
+        }
+
+        .testimonial-avatar {
+            width: 48px;
+            height: 48px;
+            border-radius: 50%;
+            background: var(--red);
+            color: #fff;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 700;
+            font-size: 15px;
+            flex-shrink: 0;
+        }
+
+        .testimonial-name {
+            font-size: 15px;
+            font-weight: 700;
+            color: var(--text);
+        }
+
+        .testimonial-role {
+            font-size: 13px;
+            color: var(--text-tertiary);
+            margin-top: 2px;
+        }
+
+        .carousel-controls {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 16px;
+            margin-top: 32px;
+        }
+
+        .carousel-btn {
+            width: 44px;
+            height: 44px;
+            border-radius: 50%;
+            border: 1.5px solid var(--border);
+            background: var(--white);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            transition: all var(--transition);
+            color: var(--text);
+        }
+
+        .carousel-btn:hover {
+            background: var(--red);
+            border-color: var(--red);
+            color: #fff;
+        }
+
+        .carousel-dots {
+            display: flex;
+            gap: 8px;
+        }
+
+        .carousel-dot {
+            width: 8px;
+            height: 8px;
+            border-radius: 50%;
+            border: none;
+            background: var(--border);
+            cursor: pointer;
+            transition: all .3s ease;
+            padding: 0;
+        }
+
+        .carousel-dot.active {
+            background: var(--red);
+            width: 24px;
+            border-radius: 4px;
+        }
+
+        @media (max-width: 1024px) {
+            .training-grid {
+                gap: clamp(24px, 4vw, 40px);
+            }
+        }
+
+        @media (max-width: 768px) {
+            .training-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .training-visual {
+                min-height: 240px;
+                padding: 20px 16px;
+            }
+
+            .course-item {
+                padding: 10px 14px;
+            }
+
+            .course-tabs {
+                justify-content: flex-start;
+                overflow-x: auto;
+                -webkit-overflow-scrolling: touch;
+                padding-bottom: 8px;
+                flex-wrap: nowrap;
+                scrollbar-width: none;
+            }
+
+            .course-tabs::-webkit-scrollbar {
+                display: none;
+            }
+
+            .course-tab {
+                white-space: nowrap;
+                flex-shrink: 0;
+            }
+
+            .testimonial-card {
+                padding: 28px 24px;
+            }
+
+            .training-point {
+                gap: 14px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .training-visual {
+                min-height: 200px;
+            }
+
+            .course-icon {
+                width: 30px;
+                height: 30px;
+            }
+
+            .course-icon svg {
+                width: 14px;
+                height: 14px;
+            }
+
+            .point-num {
+                width: 32px;
+                height: 32px;
+                font-size: 13px;
+            }
+
+            .testimonial-card {
+                padding: 22px 18px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <div class="scroll-progress" id="scrollProgress" aria-hidden="true"></div>
+    <a href="#main-content" class="skip-link">Skip to main content</a>
+
+    <!-- NAVBAR -->
+    <nav class="navbar" id="navbar" aria-label="Main navigation">
+        <div class="container">
+            <a href="index.html" class="logo" aria-label="Vianmax — Home"><img src="assets/logo.png" alt="Vianmax"
+                    class="logo-img"></a>
+            <div class="nav-links">
+                <a href="index.html" class="nav-link">Home</a>
+                <a href="about.html" class="nav-link">About</a>
+                <a href="services.html" class="nav-link">Services</a>
+                <a href="training.html" class="nav-link active">Training</a>
+                <a href="workshops.html" class="nav-link">Workshops</a>
+                <a href="contact.html" class="nav-cta">Get in Touch</a>
+            </div>
+            <button class="hamburger" id="hamburger" aria-label="Open navigation" aria-expanded="false"
+                aria-controls="mobileMenu"><span></span><span></span><span></span></button>
+        </div>
+    </nav>
+
+    <!-- MOBILE MENU -->
+    <div class="mobile-menu" id="mobileMenu" role="dialog" aria-label="Mobile navigation" aria-modal="true">
+        <div class="mobile-menu-header">
+            <a href="index.html" class="logo"><img src="assets/logo.png" alt="Vianmax" class="logo-img"></a>
+            <button class="mobile-close" aria-label="Close navigation">&#10005;</button>
+        </div>
+        <nav class="mobile-nav">
+            <a href="index.html" class="mobile-nav-link">Home <svg viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                    stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <path d="m9 18 6-6-6-6" />
+                </svg></a>
+            <a href="about.html" class="mobile-nav-link">About <svg viewBox="0 0 24 24" fill="none"
+                    stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <path d="m9 18 6-6-6-6" />
+                </svg></a>
+            <a href="services.html" class="mobile-nav-link">Services <svg viewBox="0 0 24 24" fill="none"
+                    stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <path d="m9 18 6-6-6-6" />
+                </svg></a>
+            <a href="training.html" class="mobile-nav-link active">Training <svg viewBox="0 0 24 24" fill="none"
+                    stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <path d="m9 18 6-6-6-6" />
+                </svg></a>
+            <a href="workshops.html" class="mobile-nav-link">Workshops <svg viewBox="0 0 24 24" fill="none"
+                    stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <path d="m9 18 6-6-6-6" />
+                </svg></a>
+            <a href="contact.html" class="mobile-nav-link">Contact <svg viewBox="0 0 24 24" fill="none"
+                    stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <path d="m9 18 6-6-6-6" />
+                </svg></a>
+        </nav>
+        <div class="mobile-cta-wrap"><a href="tel:+919363135599" class="btn btn-primary btn-full">Call Us Now</a></div>
+    </div>
+
+    <main id="main-content">
+
+        <!-- PAGE HERO -->
+        <section class="page-hero">
+            <div class="container">
+                <nav class="breadcrumb" aria-label="Breadcrumb">
+                    <a href="index.html">Home</a><span class="sep" aria-hidden="true">/</span><span
+                        class="current">Training</span>
+                </nav>
+                <h1>Training &amp; Academy</h1>
+                <p class="lead">Bridge the gap between education and industry with world-class training programs powered
+                    by Vianmax™ Academy.</p>
+            </div>
+        </section>
+
+        <!-- TRAINING OVERVIEW -->
+        <section class="section" style="background:var(--off-white)" aria-labelledby="training-heading">
+            <div class="container">
+                <div class="training-grid">
+                    <div class="training-visual reveal" role="img" aria-label="Course listing">
+                        <div class="course-list">
+                            <div class="course-item">
+                                <div class="course-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                        stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                        <polyline points="16 18 22 12 16 6" />
+                                        <polyline points="8 6 2 12 8 18" />
+                                    </svg></div>
+                                <span class="course-name">Full-Stack Development</span>
+                            </div>
+                            <div class="course-item">
+                                <div class="course-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                        stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                        <path d="M18 20V10" />
+                                        <path d="M12 20V4" />
+                                        <path d="M6 20v-6" />
+                                    </svg></div>
+                                <span class="course-name">Data Science &amp; ML</span>
+                            </div>
+                            <div class="course-item">
+                                <div class="course-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                        stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                        <circle cx="12" cy="12" r="10" />
+                                        <line x1="2" y1="12" x2="22" y2="12" />
+                                        <path
+                                            d="M12 2a15.3 15.3 0 014 10 15.3 15.3 0 01-4 10 15.3 15.3 0 01-4-10 15.3 15.3 0 014-10z" />
+                                    </svg></div>
+                                <span class="course-name">Cloud &amp; DevOps</span>
+                            </div>
+                            <div class="course-item">
+                                <div class="course-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                        stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                        <rect x="3" y="11" width="18" height="11" rx="2" ry="2" />
+                                        <path d="M7 11V7a5 5 0 0 1 10 0v4" />
+                                    </svg></div>
+                                <span class="course-name">Cybersecurity Essentials</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div>
+                        <div class="section-eyebrow">Vianmax™ Academy</div>
+                        <h2 class="section-title" id="training-heading">Real-World Skills for <span
+                                class="text-red">Real Careers</span></h2>
+                        <p class="section-desc">Our programs are designed by industry veterans who understand what
+                            companies need. We don't just teach theory — we build job-ready engineers.</p>
+                        <div class="training-points">
+                            <div class="training-point reveal">
+                                <div class="point-num">1</div>
+                                <div>
+                                    <div class="point-title">Industry-Driven Curriculum</div>
+                                    <p class="point-desc">Every course is designed around actual industry requirements,
+                                        tools, and best practices used in production environments.</p>
+                                </div>
+                            </div>
+                            <div class="training-point reveal delay-1">
+                                <div class="point-num">2</div>
+                                <div>
+                                    <div class="point-title">Hands-On Project Work</div>
+                                    <p class="point-desc">Students work on real projects with production codebases — not
+                                        toy examples. Build portfolio-ready applications from day one.</p>
+                                </div>
+                            </div>
+                            <div class="training-point reveal delay-2">
+                                <div class="point-num">3</div>
+                                <div>
+                                    <div class="point-title">Placement Assistance</div>
+                                    <p class="point-desc">We connect graduates with our network of hiring partners and
+                                        provide resume reviews, interview prep, and career guidance.</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div style="margin-top:36px"><a href="https://academy.vianmax.com" target="_blank"
+                                rel="noopener noreferrer" class="btn btn-primary">Visit Academy <svg width="16"
+                                    height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"
+                                    stroke-linecap="round" stroke-linejoin="round">
+                                    <path d="M5 12h14" />
+                                    <path d="m12 5 7 7-7 7" />
+                                </svg></a></div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- COURSE CATALOG -->
+        <section class="section" aria-labelledby="courses-heading">
+            <div class="container">
+                <div class="text-center" style="margin-bottom:20px">
+                    <div class="section-eyebrow" style="justify-content:center">Course Catalog</div>
+                    <h2 class="section-title text-center" id="courses-heading">Choose Your <span
+                            class="text-red">Path</span></h2>
+                    <p class="section-desc centered">15 industry-aligned courses across 5 specializations — all taught
+                        by experts with 5+ years of experience.</p>
+                </div>
+
+                <div class="training-stats reveal">
+                    <div class="training-stat">
+                        <div class="training-stat-num">100%</div>
+                        <div class="training-stat-label">Practical Projects</div>
+                    </div>
+                    <div class="training-stat">
+                        <div class="training-stat-num">1:10</div>
+                        <div class="training-stat-label">Trainer-Student Ratio</div>
+                    </div>
+                    <div class="training-stat">
+                        <div class="training-stat-num">5+</div>
+                        <div class="training-stat-label">Live Projects</div>
+                    </div>
+                    <div class="training-stat">
+                        <div class="training-stat-num">24/7</div>
+                        <div class="training-stat-label">Lab Access</div>
+                    </div>
+                </div>
+
+                <div class="course-tabs" role="tablist" aria-label="Course categories">
+                    <button class="course-tab active" role="tab" aria-selected="true" data-panel="courseAll">All
+                        Courses</button>
+                    <button class="course-tab" role="tab" aria-selected="false" data-panel="courseFullStack">Full
+                        Stack</button>
+                    <button class="course-tab" role="tab" aria-selected="false" data-panel="courseDataScience">Data
+                        Science &amp; AI</button>
+                    <button class="course-tab" role="tab" aria-selected="false" data-panel="courseMobile">Mobile
+                        Dev</button>
+                    <button class="course-tab" role="tab" aria-selected="false" data-panel="courseDevOps">DevOps &amp;
+                        Cloud</button>
+                    <button class="course-tab" role="tab" aria-selected="false"
+                        data-panel="courseFinTech">FinTech</button>
+                </div>
+
+                <!-- ALL COURSES -->
+                <div class="course-panel active" id="courseAll">
+                    <div class="courses-grid">
+                        <div class="course-card reveal">
+                            <h3 class="course-card-title">MERN Stack Development</h3>
+                            <span class="course-card-duration">12 Weeks</span>
+                            <p class="course-card-desc">Build full-stack web applications with MongoDB, Express.js,
+                                React, and Node.js from scratch.</p>
+                            <div class="course-tech-tags"><span class="tech-tag">MongoDB</span><span
+                                    class="tech-tag">Express</span><span class="tech-tag">React</span><span
+                                    class="tech-tag">Node.js</span></div>
+                            <a href="contact.html" class="btn btn-secondary">Enquire Now</a>
+                        </div>
+                        <div class="course-card reveal delay-1">
+                            <h3 class="course-card-title">Python Full Stack</h3>
+                            <span class="course-card-duration">12 Weeks</span>
+                            <p class="course-card-desc">Master Python with Django/Flask for backend and React for
+                                frontend — build complete web applications.</p>
+                            <div class="course-tech-tags"><span class="tech-tag">Python</span><span
+                                    class="tech-tag">Django</span><span class="tech-tag">Flask</span><span
+                                    class="tech-tag">React</span><span class="tech-tag">PostgreSQL</span></div>
+                            <a href="contact.html" class="btn btn-secondary">Enquire Now</a>
+                        </div>
+                        <div class="course-card reveal delay-2">
+                            <h3 class="course-card-title">Java Full Stack</h3>
+                            <span class="course-card-duration">12 Weeks</span>
+                            <p class="course-card-desc">Enterprise-grade development with Spring Boot, Hibernate, and
+                                Angular for scalable applications.</p>
+                            <div class="course-tech-tags"><span class="tech-tag">Java</span><span
+                                    class="tech-tag">Spring Boot</span><span class="tech-tag">Hibernate</span><span
+                                    class="tech-tag">Angular</span><span class="tech-tag">MySQL</span></div>
+                            <a href="contact.html" class="btn btn-secondary">Enquire Now</a>
+                        </div>
+                        <div class="course-card reveal">
+                            <h3 class="course-card-title">Data Science &amp; ML</h3>
+                            <span class="course-card-duration">16 Weeks</span>
+                            <p class="course-card-desc">From data analysis to machine learning models — master the
+                                complete data science pipeline.</p>
+                            <div class="course-tech-tags"><span class="tech-tag">Python</span><span
+                                    class="tech-tag">Pandas</span><span class="tech-tag">Scikit-learn</span><span
+                                    class="tech-tag">TensorFlow</span><span class="tech-tag">SQL</span></div>
+                            <a href="contact.html" class="btn btn-secondary">Enquire Now</a>
+                        </div>
+                        <div class="course-card reveal delay-1">
+                            <h3 class="course-card-title">Deep Learning &amp; NLP</h3>
+                            <span class="course-card-duration">12 Weeks</span>
+                            <p class="course-card-desc">Advanced neural networks, transformers, and natural language
+                                processing with real-world projects.</p>
+                            <div class="course-tech-tags"><span class="tech-tag">PyTorch</span><span
+                                    class="tech-tag">TensorFlow</span><span class="tech-tag">Hugging Face</span><span
+                                    class="tech-tag">NLTK</span><span class="tech-tag">spaCy</span></div>
+                            <a href="contact.html" class="btn btn-secondary">Enquire Now</a>
+                        </div>
+                        <div class="course-card reveal delay-2">
+                            <h3 class="course-card-title">Computer Vision</h3>
+                            <span class="course-card-duration">10 Weeks</span>
+                            <p class="course-card-desc">Image recognition, object detection, and video analysis using
+                                cutting-edge computer vision techniques.</p>
+                            <div class="course-tech-tags"><span class="tech-tag">OpenCV</span><span
+                                    class="tech-tag">YOLO</span><span class="tech-tag">TensorFlow</span><span
+                                    class="tech-tag">PyTorch</span></div>
+                            <a href="contact.html" class="btn btn-secondary">Enquire Now</a>
+                        </div>
+                        <div class="course-card reveal">
+                            <h3 class="course-card-title">Android with Kotlin</h3>
+                            <span class="course-card-duration">10 Weeks</span>
+                            <p class="course-card-desc">Modern Android development with Kotlin, Jetpack Compose, and
+                                Material Design 3.</p>
+                            <div class="course-tech-tags"><span class="tech-tag">Kotlin</span><span
+                                    class="tech-tag">Jetpack</span><span class="tech-tag">Firebase</span><span
+                                    class="tech-tag">Room DB</span></div>
+                            <a href="contact.html" class="btn btn-secondary">Enquire Now</a>
+                        </div>
+                        <div class="course-card reveal delay-1">
+                            <h3 class="course-card-title">React Native</h3>
+                            <span class="course-card-duration">10 Weeks</span>
+                            <p class="course-card-desc">Cross-platform mobile apps for iOS and Android with a single
+                                codebase using React Native.</p>
+                            <div class="course-tech-tags"><span class="tech-tag">React Native</span><span
+                                    class="tech-tag">Expo</span><span class="tech-tag">Redux</span><span
+                                    class="tech-tag">Firebase</span></div>
+                            <a href="contact.html" class="btn btn-secondary">Enquire Now</a>
+                        </div>
+                        <div class="course-card reveal delay-2">
+                            <h3 class="course-card-title">iOS with Swift</h3>
+                            <span class="course-card-duration">10 Weeks</span>
+                            <p class="course-card-desc">Native iOS development with Swift, SwiftUI, and Apple frameworks
+                                for iPhone and iPad.</p>
+                            <div class="course-tech-tags"><span class="tech-tag">Swift</span><span
+                                    class="tech-tag">SwiftUI</span><span class="tech-tag">CoreData</span><span
+                                    class="tech-tag">Xcode</span></div>
+                            <a href="contact.html" class="btn btn-secondary">Enquire Now</a>
+                        </div>
+                        <div class="course-card reveal">
+                            <h3 class="course-card-title">AWS Cloud Architecture</h3>
+                            <span class="course-card-duration">8 Weeks</span>
+                            <p class="course-card-desc">Design and deploy scalable cloud infrastructure on AWS — EC2,
+                                S3, Lambda, RDS, and more.</p>
+                            <div class="course-tech-tags"><span class="tech-tag">AWS</span><span
+                                    class="tech-tag">EC2</span><span class="tech-tag">Lambda</span><span
+                                    class="tech-tag">S3</span><span class="tech-tag">CloudFormation</span></div>
+                            <a href="contact.html" class="btn btn-secondary">Enquire Now</a>
+                        </div>
+                        <div class="course-card reveal delay-1">
+                            <h3 class="course-card-title">Docker &amp; Kubernetes</h3>
+                            <span class="course-card-duration">8 Weeks</span>
+                            <p class="course-card-desc">Containerization and orchestration — build, ship, and run
+                                applications at scale.</p>
+                            <div class="course-tech-tags"><span class="tech-tag">Docker</span><span
+                                    class="tech-tag">Kubernetes</span><span class="tech-tag">Helm</span><span
+                                    class="tech-tag">Terraform</span></div>
+                            <a href="contact.html" class="btn btn-secondary">Enquire Now</a>
+                        </div>
+                        <div class="course-card reveal delay-2">
+                            <h3 class="course-card-title">CI/CD Pipeline Mastery</h3>
+                            <span class="course-card-duration">6 Weeks</span>
+                            <p class="course-card-desc">Automate build, test, and deployment pipelines using modern
+                                DevOps tools and practices.</p>
+                            <div class="course-tech-tags"><span class="tech-tag">Jenkins</span><span
+                                    class="tech-tag">GitHub Actions</span><span class="tech-tag">GitLab CI</span><span
+                                    class="tech-tag">ArgoCD</span></div>
+                            <a href="contact.html" class="btn btn-secondary">Enquire Now</a>
+                        </div>
+                        <div class="course-card reveal">
+                            <h3 class="course-card-title">Algorithmic Trading</h3>
+                            <span class="course-card-duration">8 Weeks</span>
+                            <p class="course-card-desc">Build automated trading strategies for Indian markets (NSE/BSE)
+                                with Python and broker APIs.</p>
+                            <div class="course-tech-tags"><span class="tech-tag">Python</span><span
+                                    class="tech-tag">Zerodha API</span><span class="tech-tag">Pandas</span><span
+                                    class="tech-tag">TA-Lib</span><span class="tech-tag">Backtesting</span></div>
+                            <a href="contact.html" class="btn btn-secondary">Enquire Now</a>
+                        </div>
+                        <div class="course-card reveal delay-1">
+                            <h3 class="course-card-title">Quantitative Finance</h3>
+                            <span class="course-card-duration">6 Weeks</span>
+                            <p class="course-card-desc">Mathematical models for pricing, risk management, and portfolio
+                                optimization in financial markets.</p>
+                            <div class="course-tech-tags"><span class="tech-tag">Python</span><span
+                                    class="tech-tag">NumPy</span><span class="tech-tag">SciPy</span><span
+                                    class="tech-tag">Monte Carlo</span></div>
+                            <a href="contact.html" class="btn btn-secondary">Enquire Now</a>
+                        </div>
+                        <div class="course-card reveal delay-2">
+                            <h3 class="course-card-title">Options &amp; Derivatives</h3>
+                            <span class="course-card-duration">6 Weeks</span>
+                            <p class="course-card-desc">Understand and trade options, futures, and derivatives — pricing
+                                models, Greeks, and live strategy execution.</p>
+                            <div class="course-tech-tags"><span class="tech-tag">Python</span><span
+                                    class="tech-tag">Black-Scholes</span><span class="tech-tag">Pandas</span><span
+                                    class="tech-tag">Zerodha API</span></div>
+                            <a href="contact.html" class="btn btn-secondary">Enquire Now</a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- FULL STACK -->
+                <div class="course-panel" id="courseFullStack">
+                    <div class="courses-grid">
+                        <div class="course-card reveal">
+                            <h3 class="course-card-title">MERN Stack Development</h3><span
+                                class="course-card-duration">12 Weeks</span>
+                            <p class="course-card-desc">Build full-stack web applications with MongoDB, Express.js,
+                                React, and Node.js from scratch.</p>
+                            <div class="course-tech-tags"><span class="tech-tag">MongoDB</span><span
+                                    class="tech-tag">Express</span><span class="tech-tag">React</span><span
+                                    class="tech-tag">Node.js</span></div><a href="contact.html"
+                                class="btn btn-secondary">Enquire Now</a>
+                        </div>
+                        <div class="course-card reveal delay-1">
+                            <h3 class="course-card-title">Python Full Stack</h3><span class="course-card-duration">12
+                                Weeks</span>
+                            <p class="course-card-desc">Master Python with Django/Flask for backend and React for
+                                frontend.</p>
+                            <div class="course-tech-tags"><span class="tech-tag">Python</span><span
+                                    class="tech-tag">Django</span><span class="tech-tag">Flask</span><span
+                                    class="tech-tag">React</span><span class="tech-tag">PostgreSQL</span></div><a
+                                href="contact.html" class="btn btn-secondary">Enquire Now</a>
+                        </div>
+                        <div class="course-card reveal delay-2">
+                            <h3 class="course-card-title">Java Full Stack</h3><span class="course-card-duration">12
+                                Weeks</span>
+                            <p class="course-card-desc">Enterprise-grade development with Spring Boot, Hibernate, and
+                                Angular.</p>
+                            <div class="course-tech-tags"><span class="tech-tag">Java</span><span
+                                    class="tech-tag">Spring Boot</span><span class="tech-tag">Hibernate</span><span
+                                    class="tech-tag">Angular</span><span class="tech-tag">MySQL</span></div><a
+                                href="contact.html" class="btn btn-secondary">Enquire Now</a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- DATA SCIENCE -->
+                <div class="course-panel" id="courseDataScience">
+                    <div class="courses-grid">
+                        <div class="course-card reveal">
+                            <h3 class="course-card-title">Data Science &amp; ML</h3><span
+                                class="course-card-duration">16 Weeks</span>
+                            <p class="course-card-desc">From data analysis to machine learning models — master the
+                                complete data science pipeline.</p>
+                            <div class="course-tech-tags"><span class="tech-tag">Python</span><span
+                                    class="tech-tag">Pandas</span><span class="tech-tag">Scikit-learn</span><span
+                                    class="tech-tag">TensorFlow</span><span class="tech-tag">SQL</span></div><a
+                                href="contact.html" class="btn btn-secondary">Enquire Now</a>
+                        </div>
+                        <div class="course-card reveal delay-1">
+                            <h3 class="course-card-title">Deep Learning &amp; NLP</h3><span
+                                class="course-card-duration">12 Weeks</span>
+                            <p class="course-card-desc">Advanced neural networks, transformers, and natural language
+                                processing.</p>
+                            <div class="course-tech-tags"><span class="tech-tag">PyTorch</span><span
+                                    class="tech-tag">TensorFlow</span><span class="tech-tag">Hugging Face</span><span
+                                    class="tech-tag">NLTK</span><span class="tech-tag">spaCy</span></div><a
+                                href="contact.html" class="btn btn-secondary">Enquire Now</a>
+                        </div>
+                        <div class="course-card reveal delay-2">
+                            <h3 class="course-card-title">Computer Vision</h3><span class="course-card-duration">10
+                                Weeks</span>
+                            <p class="course-card-desc">Image recognition, object detection, and video analysis using
+                                cutting-edge techniques.</p>
+                            <div class="course-tech-tags"><span class="tech-tag">OpenCV</span><span
+                                    class="tech-tag">YOLO</span><span class="tech-tag">TensorFlow</span><span
+                                    class="tech-tag">PyTorch</span></div><a href="contact.html"
+                                class="btn btn-secondary">Enquire Now</a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- MOBILE DEV -->
+                <div class="course-panel" id="courseMobile">
+                    <div class="courses-grid">
+                        <div class="course-card reveal">
+                            <h3 class="course-card-title">Android with Kotlin</h3><span class="course-card-duration">10
+                                Weeks</span>
+                            <p class="course-card-desc">Modern Android development with Kotlin, Jetpack Compose, and
+                                Material Design 3.</p>
+                            <div class="course-tech-tags"><span class="tech-tag">Kotlin</span><span
+                                    class="tech-tag">Jetpack</span><span class="tech-tag">Firebase</span><span
+                                    class="tech-tag">Room DB</span></div><a href="contact.html"
+                                class="btn btn-secondary">Enquire Now</a>
+                        </div>
+                        <div class="course-card reveal delay-1">
+                            <h3 class="course-card-title">React Native</h3><span class="course-card-duration">10
+                                Weeks</span>
+                            <p class="course-card-desc">Cross-platform mobile apps for iOS and Android with a single
+                                React codebase.</p>
+                            <div class="course-tech-tags"><span class="tech-tag">React Native</span><span
+                                    class="tech-tag">Expo</span><span class="tech-tag">Redux</span><span
+                                    class="tech-tag">Firebase</span></div><a href="contact.html"
+                                class="btn btn-secondary">Enquire Now</a>
+                        </div>
+                        <div class="course-card reveal delay-2">
+                            <h3 class="course-card-title">iOS with Swift</h3><span class="course-card-duration">10
+                                Weeks</span>
+                            <p class="course-card-desc">Native iOS development with Swift, SwiftUI, and Apple
+                                frameworks.</p>
+                            <div class="course-tech-tags"><span class="tech-tag">Swift</span><span
+                                    class="tech-tag">SwiftUI</span><span class="tech-tag">CoreData</span><span
+                                    class="tech-tag">Xcode</span></div><a href="contact.html"
+                                class="btn btn-secondary">Enquire Now</a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- DEVOPS -->
+                <div class="course-panel" id="courseDevOps">
+                    <div class="courses-grid">
+                        <div class="course-card reveal">
+                            <h3 class="course-card-title">AWS Cloud Architecture</h3><span
+                                class="course-card-duration">8 Weeks</span>
+                            <p class="course-card-desc">Design and deploy scalable cloud infrastructure on AWS.</p>
+                            <div class="course-tech-tags"><span class="tech-tag">AWS</span><span
+                                    class="tech-tag">EC2</span><span class="tech-tag">Lambda</span><span
+                                    class="tech-tag">S3</span><span class="tech-tag">CloudFormation</span></div><a
+                                href="contact.html" class="btn btn-secondary">Enquire Now</a>
+                        </div>
+                        <div class="course-card reveal delay-1">
+                            <h3 class="course-card-title">Docker &amp; Kubernetes</h3><span
+                                class="course-card-duration">8 Weeks</span>
+                            <p class="course-card-desc">Containerization and orchestration — build, ship, and run
+                                applications at scale.</p>
+                            <div class="course-tech-tags"><span class="tech-tag">Docker</span><span
+                                    class="tech-tag">Kubernetes</span><span class="tech-tag">Helm</span><span
+                                    class="tech-tag">Terraform</span></div><a href="contact.html"
+                                class="btn btn-secondary">Enquire Now</a>
+                        </div>
+                        <div class="course-card reveal delay-2">
+                            <h3 class="course-card-title">CI/CD Pipeline Mastery</h3><span
+                                class="course-card-duration">6 Weeks</span>
+                            <p class="course-card-desc">Automate build, test, and deployment pipelines using modern
+                                DevOps tools.</p>
+                            <div class="course-tech-tags"><span class="tech-tag">Jenkins</span><span
+                                    class="tech-tag">GitHub Actions</span><span class="tech-tag">GitLab CI</span><span
+                                    class="tech-tag">ArgoCD</span></div><a href="contact.html"
+                                class="btn btn-secondary">Enquire Now</a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- FINTECH -->
+                <div class="course-panel" id="courseFinTech">
+                    <div class="courses-grid">
+                        <div class="course-card reveal">
+                            <h3 class="course-card-title">Algorithmic Trading</h3><span class="course-card-duration">8
+                                Weeks</span>
+                            <p class="course-card-desc">Build automated trading strategies for Indian markets (NSE/BSE)
+                                with Python and broker APIs.</p>
+                            <div class="course-tech-tags"><span class="tech-tag">Python</span><span
+                                    class="tech-tag">Zerodha API</span><span class="tech-tag">Pandas</span><span
+                                    class="tech-tag">TA-Lib</span><span class="tech-tag">Backtesting</span></div><a
+                                href="contact.html" class="btn btn-secondary">Enquire Now</a>
+                        </div>
+                        <div class="course-card reveal delay-1">
+                            <h3 class="course-card-title">Quantitative Finance</h3><span class="course-card-duration">6
+                                Weeks</span>
+                            <p class="course-card-desc">Mathematical models for pricing, risk management, and portfolio
+                                optimization.</p>
+                            <div class="course-tech-tags"><span class="tech-tag">Python</span><span
+                                    class="tech-tag">NumPy</span><span class="tech-tag">SciPy</span><span
+                                    class="tech-tag">Monte Carlo</span></div><a href="contact.html"
+                                class="btn btn-secondary">Enquire Now</a>
+                        </div>
+                        <div class="course-card reveal delay-2">
+                            <h3 class="course-card-title">Options &amp; Derivatives</h3><span
+                                class="course-card-duration">6
+                                Weeks</span>
+                            <p class="course-card-desc">Understand and trade options, futures, and derivatives — pricing
+                                models, Greeks, and live strategy execution.</p>
+                            <div class="course-tech-tags"><span class="tech-tag">Python</span><span
+                                    class="tech-tag">Black-Scholes</span><span class="tech-tag">Pandas</span><span
+                                    class="tech-tag">Zerodha API</span></div><a href="contact.html"
+                                class="btn btn-secondary">Enquire Now</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- PROGRAMS -->
+        <section class="section" style="background:var(--off-white)" aria-labelledby="programs-heading">
+            <div class="container">
+                <div class="text-center" style="margin-bottom:56px">
+                    <div class="section-eyebrow" style="justify-content:center">Programs</div>
+                    <h2 class="section-title text-center" id="programs-heading">Program <span
+                            class="text-red">Formats</span></h2>
+                    <p class="section-desc centered">Structured programs for every stage of your career journey.</p>
+                </div>
+                <div class="programs-grid">
+                    <div class="program-card reveal">
+                        <div class="program-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+                                <path d="M22 10v6M2 10l10-5 10 5-10 5z" />
+                                <path d="M6 12v5c3 3 9 3 12 0v-5" />
+                            </svg></div>
+                        <h3 class="program-name">Corporate Training</h3>
+                        <p class="program-desc">Customized upskilling programs for enterprise teams across emerging
+                            technologies.</p>
+                        <ul class="program-features">
+                            <li>Custom curriculum design</li>
+                            <li>On-site or remote delivery</li>
+                            <li>Progress tracking &amp; reports</li>
+                            <li>Certification on completion</li>
+                        </ul>
+                        <a href="contact.html" class="btn btn-secondary">Enquire Now</a>
+                    </div>
+                    <div class="program-card reveal delay-1">
+                        <div class="program-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+                                <path d="M4 19.5A2.5 2.5 0 016.5 17H20" />
+                                <path d="M6.5 2H20v20H6.5A2.5 2.5 0 014 19.5v-15A2.5 2.5 0 016.5 2z" />
+                            </svg></div>
+                        <h3 class="program-name">Technical Workshops</h3>
+                        <p class="program-desc">Intensive, hands-on workshops on Python, Java, Data Science, ML, and
+                            modern architecture.</p>
+                        <ul class="program-features">
+                            <li>2-5 day intensive formats</li>
+                            <li>Hands-on lab exercises</li>
+                            <li>Expert-led sessions</li>
+                            <li>Take-home project kits</li>
+                        </ul>
+                        <a href="contact.html" class="btn btn-secondary">View Schedule</a>
+                    </div>
+                    <div class="program-card reveal delay-2">
+                        <div class="program-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+                                <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2" />
+                                <circle cx="9" cy="7" r="4" />
+                                <path d="M23 21v-2a4 4 0 0 0-3-3.87" />
+                                <path d="M16 3.13a4 4 0 0 1 0 7.75" />
+                            </svg></div>
+                        <h3 class="program-name">Internship Program</h3>
+                        <p class="program-desc">Real-world project experience for students and graduates — build your
+                            career in tech.</p>
+                        <ul class="program-features">
+                            <li>3-6 month programs</li>
+                            <li>Live production projects</li>
+                            <li>Mentor-guided learning</li>
+                            <li>Placement assistance</li>
+                        </ul>
+                        <a href="contact.html" class="btn btn-secondary">Apply Now</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- TESTIMONIALS -->
+        <section class="section" style="background:var(--off-white)" aria-labelledby="testimonials-heading">
+            <div class="container">
+                <div class="text-center" style="margin-bottom:56px">
+                    <div class="section-eyebrow" style="justify-content:center">Testimonials</div>
+                    <h2 class="section-title text-center" id="testimonials-heading">What Our Clients <span
+                            class="text-red">Say</span></h2>
+                </div>
+                <div class="testimonial-carousel" aria-label="Testimonials carousel">
+                    <div class="testimonials-track-wrap">
+                        <div class="testimonials-track" id="testimonialsTrack">
+                            <div class="testimonial-card">
+                                <div class="testimonial-quote-icon" aria-hidden="true">&ldquo;</div>
+                                <div class="testimonial-stars" aria-label="5 out of 5 stars">
+                                    &#9733;&#9733;&#9733;&#9733;&#9733;</div>
+                                <p class="testimonial-text">&ldquo;Vianmax™ delivered an exceptional trading platform
+                                    for us &mdash; the latency is phenomenal and their team&rsquo;s technical depth is
+                                    remarkable.&rdquo;</p>
+                                <div class="testimonial-author">
+                                    <div class="testimonial-avatar">RK</div>
+                                    <div>
+                                        <div class="testimonial-name">Mr. Rajesh K.</div>
+                                        <div class="testimonial-role">Vishwas Projects</div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="testimonial-card">
+                                <div class="testimonial-quote-icon" aria-hidden="true">&ldquo;</div>
+                                <div class="testimonial-stars" aria-label="5 out of 5 stars">
+                                    &#9733;&#9733;&#9733;&#9733;&#9733;</div>
+                                <p class="testimonial-text">&ldquo;The training programs transformed our team&rsquo;s
+                                    capabilities. Real-world projects made all the difference in how quickly our
+                                    engineers adapted to production environments.&rdquo;</p>
+                                <div class="testimonial-author">
+                                    <div class="testimonial-avatar">MR</div>
+                                    <div>
+                                        <div class="testimonial-name">Mr. MM. Reddy</div>
+                                        <div class="testimonial-role">S QTM</div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="testimonial-card">
+                                <div class="testimonial-quote-icon" aria-hidden="true">&ldquo;</div>
+                                <div class="testimonial-stars" aria-label="5 out of 5 stars">
+                                    &#9733;&#9733;&#9733;&#9733;&#9733;</div>
+                                <p class="testimonial-text">&ldquo;Vianmax™ automated our entire workflow with n8n
+                                    &mdash; we eliminated hours of manual work and now everything runs like clockwork.
+                                    Truly impressive execution.&rdquo;</p>
+                                <div class="testimonial-author">
+                                    <div class="testimonial-avatar">SM</div>
+                                    <div>
+                                        <div class="testimonial-name">Mr. Sam</div>
+                                        <div class="testimonial-role">Cloud9 Club</div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="testimonial-card">
+                                <div class="testimonial-quote-icon" aria-hidden="true">&ldquo;</div>
+                                <div class="testimonial-stars" aria-label="5 out of 5 stars">
+                                    &#9733;&#9733;&#9733;&#9733;&#9733;</div>
+                                <p class="testimonial-text">&ldquo;The Data Science &amp; ML course was
+                                    industry-relevant and hands-on. I landed a job within two months of completing the
+                                    program. The mentorship was exceptional.&rdquo;</p>
+                                <div class="testimonial-author">
+                                    <div class="testimonial-avatar">AP</div>
+                                    <div>
+                                        <div class="testimonial-name">Ananya P.</div>
+                                        <div class="testimonial-role">Data Analyst, TechNova</div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="testimonial-card">
+                                <div class="testimonial-quote-icon" aria-hidden="true">&ldquo;</div>
+                                <div class="testimonial-stars" aria-label="4 out of 5 stars">
+                                    &#9733;&#9733;&#9733;&#9733;&#9734;</div>
+                                <p class="testimonial-text">&ldquo;We partnered with Vianmax for our LMS development and
+                                    the result exceeded expectations &mdash; intuitive UI, solid performance, and
+                                    delivered ahead of schedule.&rdquo;</p>
+                                <div class="testimonial-author">
+                                    <div class="testimonial-avatar">VK</div>
+                                    <div>
+                                        <div class="testimonial-name">Vikram K.</div>
+                                        <div class="testimonial-role">EduTech Innovations</div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="carousel-controls">
+                        <button class="carousel-btn carousel-prev" id="testPrev" aria-label="Previous testimonial"><svg
+                                width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                                <path d="m15 18-6-6 6-6" />
+                            </svg></button>
+                        <div class="carousel-dots" id="testDots">
+                            <button class="carousel-dot active" aria-label="Testimonial 1"></button>
+                            <button class="carousel-dot" aria-label="Testimonial 2"></button>
+                            <button class="carousel-dot" aria-label="Testimonial 3"></button>
+                            <button class="carousel-dot" aria-label="Testimonial 4"></button>
+                            <button class="carousel-dot" aria-label="Testimonial 5"></button>
+                        </div>
+                        <button class="carousel-btn carousel-next" id="testNext" aria-label="Next testimonial"><svg
+                                width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                                <path d="m9 18 6-6-6-6" />
+                            </svg></button>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- CTA -->
+        <section class="section-sm" style="background:var(--dark);text-align:center;padding:clamp(40px, 7vw, 80px) 0;">
+            <div class="container">
+                <h2 class="section-title" style="color:#fff">Start Your <span class="text-red">Learning Journey</span>
+                </h2>
+                <p class="section-desc centered" style="color:rgba(255,255,255,.45)">Enroll today and transform your
+                    career with industry-leading training.</p>
+                <a href="contact.html" class="btn btn-primary">Get Started <svg width="16" height="16"
+                        viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"
+                        stroke-linejoin="round">
+                        <path d="M5 12h14" />
+                        <path d="m12 5 7 7-7 7" />
+                    </svg></a>
+            </div>
+        </section>
+    </main>
+
+    <!-- FOOTER -->
+    <footer role="contentinfo">
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-brand">
+                    <a href="index.html" aria-label="Vianmax — Home"><img src="assets/vianmax-logo-light-1.png" alt="Vianmax"
+                            class="logo-img"></a>
+                    <p>Delivering innovative, reliable software solutions that help businesses grow, connect, and thrive
+                        globally.</p>
+
+                </div>
+                <div class="footer-col">
+                    <h4>Quick Links</h4>
+                    <ul class="footer-links">
+                        <li><a href="about.html">About Company</a></li>
+                        <li><a href="services.html">Our Services</a></li>
+                        <li><a href="training.html">Training</a></li>
+                        <li><a href="workshops.html">Workshops</a></li>
+                        <li><a href="contact.html">Contact Us</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4>Services</h4>
+                    <ul class="footer-links">
+                        <li><a href="services.html">Custom Software</a></li>
+                        <li><a href="services.html">Mobile Applications</a></li>
+                        <li><a href="services.html">Web Development</a></li>
+                        <li><a href="services.html">Algo Trading</a></li>
+                        <li><a href="services.html">n8n Automation</a></li>
+                        <li><a href="services.html">AI Automation</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4>Contact Us</h4>
+                    <div class="footer-contact-list">
+                        <a href="tel:+919363135599" class="footer-contact-link"><svg viewBox="0 0 24 24" fill="none"
+                                stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                <path
+                                    d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 013.07 8.81 19.79 19.79 0 01.07 2.24 2 2 0 012 .06h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L6.09 7.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0122 16.92z" />
+                            </svg> +91-9363135599</a>
+                        <a href="mailto:info@vianmax.com" class="footer-contact-link"><svg viewBox="0 0 24 24"
+                                fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                                stroke-linejoin="round">
+                                <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z" />
+                                <polyline points="22,6 12,13 2,6" />
+                            </svg> info@vianmax.com</a>
+                    </div>
+                    <div class="footer-social" aria-label="Social media">
+                        <a href="#" class="social-link" title="LinkedIn" aria-label="LinkedIn">in</a>
+                        <a href="#" class="social-link" title="X" aria-label="X">&#x1D54F;</a>
+                        <a href="#" class="social-link" title="Instagram" aria-label="Instagram"><svg width="13"
+                                height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                                stroke-linecap="round" stroke-linejoin="round">
+                                <rect x="2" y="2" width="20" height="20" rx="5" />
+                                <circle cx="12" cy="12" r="4" />
+                            </svg></a>
+                        <a href="#" class="social-link" title="YouTube" aria-label="YouTube"><svg width="13" height="13"
+                                viewBox="0 0 24 24" fill="currentColor">
+                                <path
+                                    d="M23 7s-.3-1.9-1.1-2.7c-1.1-1.1-2.3-1.1-2.9-1.2C16.2 3 12 3 12 3s-4.2 0-7 .1C4.3 3.2 3.1 3.2 2 4.3 1.2 5.1.9 7 .9 7S.6 9.2.6 11.3v2c0 2.1.3 4.3.3 4.3s.3 1.9 1.1 2.7c1.1 1.1 2.5 1 3.1 1.1C7 21.4 12 21.5 12 21.5s4.2 0 7-.2c.6-.1 1.8-.1 2.9-1.2.8-.8 1.1-2.7 1.1-2.7s.3-2.2.3-4.3v-2C23.3 9.2 23 7 23 7zM9.7 15.5V8.4l7.9 3.6-7.9 3.5z" />
+                            </svg></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <span>&copy; 2026 <a href="index.html">Vianmax™ Techno Ventures Pvt. Ltd.</a> All rights reserved.</span>
+            <div class="links"><a href="#">Privacy Policy</a><a href="#">Terms</a><a href="contact.html">Support</a>
+            </div>
+        </div>
+    </footer>
+
+    <!-- CHAT + BACK TO TOP -->
+    <div class="chat-widget">
+        <div class="chat-panel" id="chatPanel" role="dialog" aria-label="Chat with support">
+            <div class="chat-head">
+                <div class="chat-avatar"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                        stroke-linecap="round" stroke-linejoin="round">
+                        <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z" />
+                    </svg></div>
+                <div>
+                    <div class="chat-name">Vianmax™ Support</div>
+                    <div class="chat-status">&#9679; Online Now</div>
+                </div>
+            </div>
+            <p class="chat-msg">Hi there! How can we help you today?</p>
+            <div class="chat-options">
+                <a href="tel:+919363135599" class="chat-opt"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                        stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <path
+                            d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 013.07 8.81 19.79 19.79 0 01.07 2.24 2 2 0 012 .06h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L6.09 7.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0122 16.92z" />
+                    </svg> Call Us Now</a>
+                <a href="mailto:info@vianmax.com" class="chat-opt"><svg viewBox="0 0 24 24" fill="none"
+                        stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z" />
+                        <polyline points="22,6 12,13 2,6" />
+                    </svg> Email Us</a>
+                <a href="https://wa.me/919363135599" target="_blank" rel="noopener noreferrer" class="chat-opt"><svg
+                        viewBox="0 0 24 24" fill="currentColor" width="15" height="15">
+                        <path
+                            d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c-.001 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z" />
+                    </svg> WhatsApp Us</a>
+                <a href="contact.html" class="chat-opt"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                        stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z" />
+                    </svg> Get Consultation</a>
+            </div>
+        </div>
+        <button class="chat-toggle" id="chatToggle" aria-label="Open chat" aria-expanded="false"
+            aria-controls="chatPanel"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                stroke-linecap="round" stroke-linejoin="round">
+                <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z" />
+            </svg></button>
+    </div>
+    <a href="#" class="back-top" id="backTop" aria-label="Back to top"><svg viewBox="0 0 24 24" fill="none"
+            stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+            <path d="m18 15-6-6-6 6" />
+        </svg></a>
+
+    <div class="cookie-banner" id="cookieBanner" role="alert">
+        <div class="cookie-inner">
+            <p class="cookie-text">We use cookies to enhance your experience. <a href="#">Learn more</a></p>
+            <div class="cookie-actions"><button class="cookie-accept" id="cookieAccept">Accept</button><button
+                    class="cookie-decline" id="cookieDecline">Decline</button></div>
+        </div>
+    </div>
+
+    <noscript>
+        <style>
+            .reveal {
+                opacity: 1 !important;
+                transform: none !important
+            }
+        </style>
+    </noscript>
+
+    <script>
+        (function () {
+            'use strict';
+            var sp = document.getElementById('scrollProgress');
+            function updateSP() { var t = window.scrollY, h = document.documentElement.scrollHeight - window.innerHeight; if (h > 0 && sp) sp.style.width = (t / h * 100) + '%'; }
+            var nb = document.getElementById('navbar'), bt = document.getElementById('backTop');
+            function onScroll() { var y = window.scrollY; if (nb) nb.classList.toggle('scrolled', y > 60); if (bt) bt.classList.toggle('visible', y > 300); updateSP(); }
+            window.addEventListener('scroll', onScroll, { passive: true }); onScroll();
+
+            var mm = document.getElementById('mobileMenu'), hb = document.getElementById('hamburger'), mc = mm ? mm.querySelector('.mobile-close') : null;
+            function toggleMenu() { if (!mm) return; var o = mm.classList.toggle('open'); document.body.style.overflow = o ? 'hidden' : ''; if (hb) hb.setAttribute('aria-expanded', o); }
+            if (hb) hb.addEventListener('click', toggleMenu); if (mc) mc.addEventListener('click', toggleMenu);
+            if (mm) mm.querySelectorAll('.mobile-nav-link').forEach(function (a) { a.addEventListener('click', toggleMenu) });
+
+            var cp = document.getElementById('chatPanel'), ct = document.getElementById('chatToggle');
+            function toggleChat() { if (!cp || !ct) return; var o = cp.classList.toggle('open'); ct.setAttribute('aria-expanded', o); }
+            if (ct) ct.addEventListener('click', toggleChat);
+
+            var rObs = new IntersectionObserver(function (entries) { entries.forEach(function (e) { if (e.isIntersecting) { e.target.classList.add('visible'); rObs.unobserve(e.target); } }) }, { threshold: .12 });
+            document.querySelectorAll('.reveal').forEach(function (el) { rObs.observe(el) });
+
+            /* Course Catalog Tabs */
+            var courseTabs = document.querySelectorAll('.course-tab');
+            var coursePanels = document.querySelectorAll('.course-panel');
+            courseTabs.forEach(function (tab) {
+                tab.addEventListener('click', function () {
+                    courseTabs.forEach(function (t) { t.classList.remove('active'); t.setAttribute('aria-selected', 'false'); });
+                    coursePanels.forEach(function (p) { p.classList.remove('active'); });
+                    tab.classList.add('active');
+                    tab.setAttribute('aria-selected', 'true');
+                    var panel = document.getElementById(tab.getAttribute('data-panel'));
+                    if (panel) {
+                        panel.classList.add('active');
+                        panel.querySelectorAll('.reveal').forEach(function (el) { el.classList.remove('visible'); void el.offsetWidth; rObs.observe(el); });
+                    }
+                });
+            });
+
+
+            var cb = document.getElementById('cookieBanner'), ca = document.getElementById('cookieAccept'), cd = document.getElementById('cookieDecline');
+            function hideCookie() { if (cb) cb.classList.remove('show'); try { localStorage.setItem('vianmax_cookies', 'set') } catch (e) { } }
+            try { if (!localStorage.getItem('vianmax_cookies') && cb) setTimeout(function () { cb.classList.add('show') }, 2000) } catch (e) { }
+            if (ca) ca.addEventListener('click', hideCookie); if (cd) cd.addEventListener('click', hideCookie);
+
+            document.addEventListener('keydown', function (e) { if (e.key === 'Escape') { if (mm && mm.classList.contains('open')) toggleMenu(); if (cp && cp.classList.contains('open')) toggleChat(); } });
+
+            /* Testimonials Carousel */
+            var track = document.getElementById('testimonialsTrack');
+            var prevBtn = document.getElementById('testPrev');
+            var nextBtn = document.getElementById('testNext');
+            var dotsWrap = document.getElementById('testDots');
+            if (track && prevBtn && nextBtn && dotsWrap) {
+                var cards = track.querySelectorAll('.testimonial-card');
+                var dots = dotsWrap.querySelectorAll('.carousel-dot');
+                var current = 0;
+                var total = cards.length;
+                var autoInterval;
+
+                function goTo(idx) {
+                    if (idx < 0) idx = total - 1;
+                    if (idx >= total) idx = 0;
+                    current = idx;
+                    var w = track.parentElement.offsetWidth;
+                    track.style.transform = 'translateX(' + (-current * w) + 'px)';
+                    dots.forEach(function (d, i) { d.classList.toggle('active', i === current); });
+                }
+
+                prevBtn.addEventListener('click', function () { goTo(current - 1); resetAuto(); });
+                nextBtn.addEventListener('click', function () { goTo(current + 1); resetAuto(); });
+                dots.forEach(function (d, i) { d.addEventListener('click', function () { goTo(i); resetAuto(); }); });
+
+                /* Swipe support */
+                var startX = 0;
+                track.parentElement.addEventListener('touchstart', function (e) { startX = e.touches[0].clientX; }, { passive: true });
+                track.parentElement.addEventListener('touchend', function (e) {
+                    var diff = startX - e.changedTouches[0].clientX;
+                    if (Math.abs(diff) > 40) { goTo(diff > 0 ? current + 1 : current - 1); resetAuto(); }
+                }, { passive: true });
+
+                window.addEventListener('resize', function () { goTo(current); });
+
+                function resetAuto() {
+                    clearInterval(autoInterval);
+                    autoInterval = setInterval(function () { goTo(current + 1); }, 5000);
+                }
+
+                resetAuto();
+            }
+        })();
+    </script>
+</body>
+
+</html>

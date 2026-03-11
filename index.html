@@ -1,0 +1,1841 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Vianmax – Where Vision Becomes Reality | Custom Software, Automation & Training</title>
+
+    <!-- SEO -->
+    <meta name="description"
+        content="Vianmax Techno Ventures — custom software development, n8n workflow automation, algorithmic trading systems, mobile apps, and expert-led tech training programs.">
+    <meta name="keywords"
+        content="custom software development, n8n automation, algo trading, mobile apps, web development, tech training, Vianmax">
+    <meta name="author" content="Vianmax Techno Ventures Pvt. Ltd.">
+    <meta name="robots" content="index, follow">
+    <link rel="canonical" href="https://www.vianmax.com/">
+
+    <!-- Open Graph -->
+    <meta property="og:type" content="website">
+    <meta property="og:title" content="Vianmax – Where Vision Becomes Reality">
+    <meta property="og:description"
+        content="Custom software, intelligent automation, algo trading systems & expert tech training.">
+    <meta property="og:url" content="https://www.vianmax.com/">
+    <meta property="og:site_name" content="Vianmax">
+    <meta property="og:locale" content="en_IN">
+
+    <!-- Twitter -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Vianmax – Where Vision Becomes Reality">
+    <meta name="twitter:description"
+        content="Custom software, intelligent automation, algo trading systems & expert tech training.">
+
+    <!-- Theme -->
+    <meta name="theme-color" content="#E3001B">
+    <link rel="icon" type="image/png" href="assets/favicon.png">
+
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap"
+        rel="stylesheet">
+
+    <!-- Structured Data -->
+    <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Organization",
+    "name": "Vianmax Techno Ventures Pvt. Ltd.",
+    "url": "https://www.vianmax.com",
+    "logo": "https://www.vianmax.com/logo.png",
+    "description": "Custom software development, n8n workflow automation, algorithmic trading systems, mobile apps, and expert-led tech training.",
+    "email": "info@vianmax.com",
+    "telephone": "+91-9363135599",
+    "address": { "@type": "PostalAddress", "addressCountry": "IN" },
+    "areaServed": "Worldwide",
+    "foundingDate": "2021"
+  }
+  </script>
+
+    <link rel="stylesheet" href="css/styles.css">
+
+    <style>
+        /* ── HERO (Home only) ── */
+        .hero {
+            background: var(--dark);
+            min-height: calc(100vh - var(--nav-height));
+            position: relative;
+            overflow: hidden;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .hero-main {
+            flex: 1;
+            position: relative;
+            display: flex;
+            align-items: center;
+        }
+
+        .hero-main::after {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.04'/%3E%3C/svg%3E");
+            opacity: .2;
+            pointer-events: none;
+            z-index: 1;
+        }
+
+        .slide {
+            position: absolute;
+            inset: 0;
+            opacity: 0;
+            visibility: hidden;
+            transition: opacity 0.6s ease, visibility 0.6s;
+            display: flex;
+            align-items: center;
+            pointer-events: none;
+        }
+
+        .slide.active {
+            opacity: 1;
+            visibility: visible;
+            pointer-events: auto;
+        }
+
+        .slide-bg {
+            position: absolute;
+            inset: 0;
+            background-size: cover;
+            background-position: center;
+            transform: scale(1);
+            transition: transform 3.5s ease;
+        }
+
+        .slide.active .slide-bg {
+            transform: scale(1.06);
+        }
+
+        .slide-bg-1 {
+            background: linear-gradient(125deg, rgba(13, 0, 5, .7), rgba(30, 0, 8, .62) 45%, rgba(8, 10, 24, .68)), url('https://images.unsplash.com/photo-1461749280684-dccba630e2f6?w=1920&q=80') center/cover no-repeat;
+        }
+
+        .slide-bg-2 {
+            background: linear-gradient(125deg, rgba(5, 11, 26, .7), rgba(6, 2, 24, .62) 45%, rgba(13, 0, 5, .68)), url('https://images.unsplash.com/photo-1611974789855-9c2a0a7236a3?w=1920&q=80') center/cover no-repeat;
+        }
+
+        .slide-bg-3 {
+            background: linear-gradient(125deg, rgba(7, 7, 7, .65), rgba(26, 0, 5, .6) 45%, rgba(6, 11, 24, .68)), url('https://images.unsplash.com/photo-1531482615713-2afd69097998?w=1920&q=80') center/cover no-repeat;
+        }
+
+        .slide-overlay {
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(100deg, rgba(0, 0, 0, .72) 30%, rgba(0, 0, 0, .25) 65%, transparent);
+        }
+
+        .hero-accent {
+            position: absolute;
+            right: 0;
+            top: 0;
+            bottom: 0;
+            width: 46%;
+            background: linear-gradient(135deg, transparent, rgba(227, 0, 27, .04) 50%, rgba(227, 0, 27, .02));
+            clip-path: polygon(12% 0, 100% 0, 100% 100%, 0 100%);
+            pointer-events: none;
+        }
+
+        .hero-accent::before {
+            content: '';
+            position: absolute;
+            left: 0;
+            top: 0;
+            bottom: 0;
+            width: 2px;
+            background: linear-gradient(180deg, transparent, rgba(227, 0, 27, .5) 30%, rgba(227, 0, 27, .5) 70%, transparent);
+        }
+
+        .hero-grid {
+            position: absolute;
+            inset: 0;
+            pointer-events: none;
+            background-image: radial-gradient(rgba(255, 255, 255, .04) 1px, transparent 1px);
+            background-size: 44px 44px;
+            mask-image: linear-gradient(135deg, transparent 20%, rgba(0, 0, 0, .5) 55%, transparent 85%);
+            -webkit-mask-image: linear-gradient(135deg, transparent 20%, rgba(0, 0, 0, .5) 55%, transparent 85%);
+        }
+
+        .hero-content-wrap {
+            position: relative;
+            z-index: 10;
+            max-width: var(--container);
+            margin: 0 auto;
+            padding: 0 clamp(16px, 4vw, 28px);
+            width: 100%;
+        }
+
+        .hero-eyebrow {
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            font-size: clamp(10px, 1.2vw, 11.5px);
+            font-weight: 600;
+            letter-spacing: .14em;
+            color: rgba(255, 255, 255, .6);
+            text-transform: uppercase;
+            margin-bottom: clamp(16px, 3vw, 28px);
+            animation: slideUp .7s var(--ease) both;
+        }
+
+        .hero-eyebrow-dot {
+            width: 5px;
+            height: 5px;
+            border-radius: 50%;
+            background: var(--red);
+            box-shadow: 0 0 8px rgba(227, 0, 27, .8);
+            animation: glow 2s ease infinite;
+        }
+
+        @keyframes glow {
+
+            0%,
+            100% {
+                box-shadow: 0 0 8px rgba(227, 0, 27, .8)
+            }
+
+            50% {
+                box-shadow: 0 0 16px rgba(227, 0, 27, 1)
+            }
+        }
+
+        .hero h1 {
+            font-size: clamp(32px, 7vw, 80px);
+            font-weight: 700;
+            line-height: .98;
+            color: #fff;
+            margin-bottom: clamp(16px, 2.5vw, 24px);
+            letter-spacing: -.025em;
+            animation: slideUp .7s var(--ease) .1s both;
+        }
+
+        .hero h1 .red {
+            color: var(--red);
+        }
+
+        .hero h1 .stroke {
+            -webkit-text-stroke: 1.5px rgba(255, 255, 255, .5);
+            color: transparent;
+        }
+
+        .hero-desc {
+            font-size: clamp(14px, 1.8vw, 17px);
+            color: rgba(255, 255, 255, .65);
+            line-height: 1.8;
+            max-width: 520px;
+            margin-bottom: clamp(20px, 4vw, 36px);
+            animation: slideUp .7s var(--ease) .2s both;
+        }
+
+        .hero-tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+            margin-bottom: 40px;
+            animation: slideUp .7s var(--ease) .3s both;
+        }
+
+        .hero-tag-pill {
+            font-size: 12px;
+            font-weight: 500;
+            letter-spacing: .02em;
+            color: rgba(255, 255, 255, .75);
+            background: rgba(255, 255, 255, .08);
+            border: 1px solid rgba(255, 255, 255, .14);
+            padding: 5px 14px;
+            border-radius: var(--radius-full);
+            transition: all var(--transition);
+        }
+
+        .hero-tag-pill:hover {
+            background: rgba(227, 0, 27, .15);
+            border-color: rgba(227, 0, 27, .3);
+            color: #fff;
+        }
+
+        .hero-actions {
+            display: flex;
+            gap: 14px;
+            flex-wrap: wrap;
+            animation: slideUp .7s var(--ease) .4s both;
+        }
+
+        @keyframes slideUp {
+            from {
+                opacity: 0;
+                transform: translateY(24px)
+            }
+
+            to {
+                opacity: 1;
+                transform: none
+            }
+        }
+
+        .slide-nav {
+            position: absolute;
+            bottom: 28px;
+            left: 50%;
+            transform: translateX(-50%);
+            display: flex;
+            gap: 6px;
+            z-index: 20;
+        }
+
+        .slide-dot {
+            height: 4px;
+            width: 20px;
+            border-radius: 2px;
+            background: rgba(255, 255, 255, .25);
+            cursor: pointer;
+            transition: all var(--transition);
+            border: none;
+            padding: 0;
+        }
+
+        .slide-dot.active {
+            width: 36px;
+            background: var(--red);
+        }
+
+        .slide-dot:hover:not(.active) {
+            background: rgba(255, 255, 255, .45);
+        }
+
+        /* ── QUICK ACCESS ── */
+        .quick-access {
+            background: var(--off-white);
+            padding: clamp(28px, 5vw, 52px) 0;
+            border-bottom: 1px solid var(--border);
+        }
+
+        .qa-label {
+            font-size: 11px;
+            font-weight: 700;
+            letter-spacing: .16em;
+            color: var(--text-muted);
+            text-transform: uppercase;
+            margin-bottom: 24px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .qa-label::before {
+            content: '';
+            width: 24px;
+            height: 1.5px;
+            background: var(--red);
+        }
+
+        .qa-grid {
+            display: flex;
+            gap: 10px;
+            flex-wrap: wrap;
+        }
+
+        .qa-card {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 10px;
+            padding: 20px;
+            border-radius: var(--radius-lg);
+            border: 1.5px solid var(--gray-200);
+            cursor: pointer;
+            transition: all var(--transition);
+            color: var(--text);
+            min-width: 100px;
+            flex: 1;
+            background: var(--white);
+        }
+
+        .qa-card:hover {
+            border-color: var(--red);
+            color: var(--red);
+            box-shadow: 0 4px 20px rgba(227, 0, 27, .1);
+            transform: translateY(-2px);
+        }
+
+        .qa-icon-wrap {
+            width: 44px;
+            height: 44px;
+            background: var(--gray-100);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: all var(--transition);
+        }
+
+        .qa-card:hover .qa-icon-wrap {
+            background: rgba(227, 0, 27, .08);
+        }
+
+        .qa-icon {
+            width: 20px;
+            height: 20px;
+        }
+
+        .qa-label-text {
+            font-size: 12px;
+            font-weight: 600;
+            text-align: center;
+        }
+
+        /* ── TRUSTED BY / MARQUEE ── */
+        .trusted-section {
+            padding: 44px 0 36px;
+            background: var(--white);
+            border-bottom: 1px solid var(--border);
+            overflow: hidden;
+        }
+
+        .trusted-label {
+            text-align: center;
+            font-size: 11.5px;
+            font-weight: 700;
+            letter-spacing: 0.16em;
+            text-transform: uppercase;
+            color: var(--text-muted);
+            margin-bottom: 24px;
+        }
+
+        .marquee-wrap {
+            overflow: hidden;
+            width: 100%;
+            -webkit-mask-image: linear-gradient(90deg, transparent, #000 10%, #000 90%, transparent);
+            mask-image: linear-gradient(90deg, transparent, #000 10%, #000 90%, transparent);
+        }
+
+        .marquee-track {
+            display: flex;
+            gap: 56px;
+            align-items: center;
+            white-space: nowrap;
+            animation: marquee 25s linear infinite;
+            width: max-content;
+        }
+
+        .marquee-item {
+            font-size: 18px;
+            font-weight: 700;
+            color: var(--gray-300);
+            letter-spacing: 0.02em;
+            flex-shrink: 0;
+            transition: color .3s ease;
+        }
+
+        .marquee-item:hover {
+            color: var(--red);
+        }
+
+        @keyframes marquee {
+            0% {
+                transform: translateX(0);
+            }
+
+            100% {
+                transform: translateX(-50%);
+            }
+        }
+
+        /* ── ABOUT TEASER ── */
+        .about-teaser {
+            background: var(--white);
+        }
+
+        .about-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: clamp(28px, 5vw, 64px);
+            align-items: center;
+        }
+
+        .about-visual {
+            position: relative;
+            border-radius: var(--radius-xl);
+            overflow: hidden;
+            aspect-ratio: 1/0.85;
+            background: linear-gradient(135deg, #1a1a2e .01%, #16213e 50%, #0f3460);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .about-visual::before {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background-image:
+                linear-gradient(rgba(227, 0, 27, .06) 1px, transparent 1px),
+                linear-gradient(90deg, rgba(227, 0, 27, .06) 1px, transparent 1px);
+            background-size: 32px 32px;
+        }
+
+        .about-visual-accent {
+            position: absolute;
+            top: 0;
+            right: 0;
+            width: 50%;
+            height: 3px;
+            background: var(--red);
+        }
+
+        .code-block {
+            position: relative;
+            z-index: 2;
+            font-family: 'Courier New', monospace;
+            font-size: clamp(11px, 1.3vw, 13px);
+            color: rgba(255, 255, 255, .8);
+            text-align: left;
+            padding: clamp(16px, 3vw, 32px);
+            width: 100%;
+            line-height: 1.7;
+        }
+
+        .code-block .kw {
+            color: #ff7b85;
+        }
+
+        .code-block .fn {
+            color: #7dd3fc;
+        }
+
+        .code-block .str {
+            color: #86efac;
+        }
+
+        .code-block .cmt {
+            color: rgba(255, 255, 255, .35);
+            font-style: italic;
+        }
+
+        .code-block .num {
+            color: #fcd34d;
+        }
+
+        .code-cursor {
+            display: inline-block;
+            width: 2px;
+            height: 14px;
+            background: var(--red);
+            vertical-align: middle;
+            animation: blink 1s infinite;
+        }
+
+        @keyframes blink {
+
+            0%,
+            49% {
+                opacity: 1
+            }
+
+            50%,
+            100% {
+                opacity: 0
+            }
+        }
+
+        .about-badge {
+            position: absolute;
+            bottom: -16px;
+            right: -16px;
+            background: var(--red);
+            color: #fff;
+            border-radius: var(--radius-lg);
+            padding: clamp(12px, 2vw, 18px) clamp(14px, 2.5vw, 22px);
+            box-shadow: 0 12px 40px rgba(227, 0, 27, .4);
+            z-index: 5;
+            text-align: center;
+        }
+
+        .about-badge .badge-num {
+            font-size: clamp(24px, 3.5vw, 36px);
+            font-weight: 700;
+            line-height: 1;
+        }
+
+        .about-badge .badge-lbl {
+            font-size: clamp(10px, 1.1vw, 11px);
+            opacity: .9;
+            margin-top: 2px;
+        }
+
+        .about-features {
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+            margin-top: 32px;
+        }
+
+        .about-feat {
+            display: flex;
+            align-items: flex-start;
+            gap: 14px;
+            padding: 16px 18px;
+            background: var(--white);
+            border-radius: var(--radius-md);
+            border-left: 3px solid transparent;
+            transition: all var(--transition);
+            cursor: default;
+        }
+
+        .about-feat:hover {
+            border-left-color: var(--red);
+            transform: translateX(4px);
+            box-shadow: var(--shadow-sm);
+        }
+
+        .feat-icon {
+            width: 38px;
+            height: 38px;
+            border-radius: var(--radius-sm);
+            background: rgba(227, 0, 27, .07);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-shrink: 0;
+            color: var(--red);
+        }
+
+        .feat-icon svg {
+            width: 18px;
+            height: 18px;
+        }
+
+        .feat-title {
+            font-size: 14.5px;
+            font-weight: 600;
+            color: var(--text);
+            margin-bottom: 3px;
+        }
+
+        .feat-desc {
+            font-size: 13px;
+            color: var(--text-secondary);
+            line-height: 1.55;
+        }
+
+        /* ── SERVICES TEASER ── */
+        .services-teaser {
+            background: var(--off-white);
+        }
+
+        .services-teaser-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(min(280px, 100%), 1fr));
+            gap: clamp(14px, 2vw, 20px);
+        }
+
+        /* ── CTA BAND ── */
+        .cta-band {
+            background: linear-gradient(135deg, #111113, #1a1a2e 60%, #111113);
+            padding: clamp(40px, 7vw, 80px) 0;
+            position: relative;
+            overflow: hidden;
+            text-align: center;
+        }
+
+        .cta-band::before {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background-image: radial-gradient(rgba(227, 0, 27, .08) 1px, transparent 1px);
+            background-size: 32px 32px;
+        }
+
+        .cta-band::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 2px;
+            background: linear-gradient(90deg, transparent, var(--red), transparent);
+        }
+
+        .cta-band .container {
+            position: relative;
+            z-index: 2;
+        }
+
+        .cta-band h2 {
+            font-size: clamp(28px, 4vw, 44px);
+            font-weight: 700;
+            color: #fff;
+            margin-bottom: 16px;
+            letter-spacing: -.02em;
+        }
+
+        .cta-band p {
+            font-size: 16px;
+            color: rgba(255, 255, 255, .55);
+            max-width: 520px;
+            margin: 0 auto 32px;
+            line-height: 1.75;
+        }
+
+        .cta-band .btn-group {
+            display: flex;
+            gap: 14px;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+
+        /* ── HOME TESTIMONIALS ── */
+        .home-testimonials {
+            background: var(--off-white);
+        }
+
+        .home-test-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(min(280px, 100%), 1fr));
+            gap: clamp(16px, 2vw, 24px);
+        }
+
+        .home-test-card {
+            background: var(--off-white);
+            border: 1px solid var(--border);
+            border-radius: var(--radius-lg);
+            padding: clamp(22px, 3vw, 32px) clamp(20px, 2.5vw, 28px);
+            transition: all var(--transition);
+            text-align: left;
+        }
+
+        .home-test-card:hover {
+            box-shadow: 0 8px 32px rgba(227, 0, 27, .06), var(--shadow-sm);
+            transform: translateY(-3px);
+            background: var(--white);
+        }
+
+        .home-test-stars {
+            color: #fbbf24;
+            font-size: 14px;
+            margin-bottom: 16px;
+            letter-spacing: 2px;
+        }
+
+        .home-test-text {
+            font-size: 14px;
+            color: var(--text-secondary);
+            line-height: 1.75;
+            font-style: italic;
+            margin-bottom: 20px;
+        }
+
+        .home-test-author {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+
+        .home-test-avatar {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            background: var(--red-subtle);
+            color: var(--red);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 700;
+            font-size: 14px;
+        }
+
+        .home-test-name {
+            font-size: 14px;
+            font-weight: 600;
+        }
+
+        .home-test-role {
+            font-size: 12px;
+            color: var(--text-tertiary);
+        }
+
+        /* ── WHY VIANMAX ── */
+        .why-vianmax {
+            background: var(--white);
+        }
+
+        .why-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(min(260px, 100%), 1fr));
+            gap: clamp(16px, 2vw, 24px);
+            margin-top: clamp(28px, 5vw, 48px);
+        }
+
+        .why-card {
+            background: var(--off-white);
+            border: 1px solid var(--border);
+            border-radius: var(--radius-lg);
+            padding: clamp(24px, 4vw, 40px) clamp(18px, 3vw, 28px) clamp(22px, 3.5vw, 36px);
+            text-align: center;
+            transition: all var(--transition);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .why-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 3px;
+            background: var(--red);
+            transform: scaleX(0);
+            transition: transform .3s ease;
+        }
+
+        .why-card:hover::before {
+            transform: scaleX(1);
+        }
+
+        .why-card:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 12px 40px rgba(227, 0, 27, .08);
+            background: var(--white);
+        }
+
+        .why-icon {
+            width: 56px;
+            height: 56px;
+            border-radius: 50%;
+            background: rgba(227, 0, 27, .07);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 20px;
+            color: var(--red);
+        }
+
+        .why-icon svg {
+            width: 24px;
+            height: 24px;
+        }
+
+        .why-title {
+            font-size: clamp(16px, 1.8vw, 18px);
+            font-weight: 700;
+            color: var(--text);
+            margin-bottom: 10px;
+        }
+
+        .why-desc {
+            font-size: clamp(13px, 1.4vw, 14px);
+            color: var(--text-secondary);
+            line-height: 1.7;
+        }
+
+        /* ── RESPONSIVE ── */
+        @media (max-width: 1024px) {
+            .about-grid {
+                gap: clamp(24px, 4vw, 40px);
+            }
+
+            .cta-band {
+                padding: clamp(48px, 6vw, 64px) 0;
+            }
+
+            .hero-tags {
+                margin-bottom: clamp(24px, 4vw, 32px);
+            }
+        }
+
+        @media (max-width: 768px) {
+            .hero {
+                min-height: calc(100svh - var(--nav-height));
+            }
+
+            .hero h1 {
+                font-size: clamp(28px, 8vw, 48px);
+                line-height: 1.05;
+            }
+
+            .hero-desc {
+                font-size: clamp(13.5px, 1.6vw, 15px);
+            }
+
+            .hero-actions {
+                flex-direction: column;
+                gap: 10px;
+            }
+
+            .hero-actions .btn {
+                width: 100%;
+                text-align: center;
+                justify-content: center;
+            }
+
+            .about-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .about-visual {
+                min-height: 240px;
+            }
+
+            .about-badge {
+                position: relative;
+                bottom: auto;
+                right: auto;
+                display: inline-flex;
+                margin-top: 16px;
+            }
+
+            .hero-tags {
+                margin-bottom: 24px;
+            }
+
+            .qa-grid {
+                gap: 8px;
+                overflow-x: auto;
+                -webkit-overflow-scrolling: touch;
+                scroll-snap-type: x mandatory;
+                padding-bottom: 8px;
+                scrollbar-width: none;
+            }
+
+            .qa-grid::-webkit-scrollbar {
+                display: none;
+            }
+
+            .qa-card {
+                min-width: 80px;
+                padding: 14px 10px;
+                scroll-snap-align: start;
+            }
+
+            .slide-nav {
+                bottom: 16px;
+            }
+
+            .cta-band {
+                padding: clamp(40px, 6vw, 56px) 0;
+            }
+
+            .cta-band h2 {
+                font-size: clamp(22px, 5vw, 32px);
+            }
+
+            .cta-band p {
+                font-size: 14px;
+                margin-bottom: 24px;
+            }
+
+            .hero-accent {
+                display: none;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .hero h1 {
+                font-size: clamp(26px, 8vw, 36px);
+            }
+
+            .hero-eyebrow {
+                font-size: 10px;
+            }
+
+            .hero-tags {
+                gap: 6px;
+            }
+
+            .hero-tag-pill {
+                font-size: 11px;
+                padding: 4px 10px;
+            }
+
+            .qa-label-text {
+                font-size: 11px;
+            }
+
+            .qa-card {
+                min-width: 72px;
+                padding: 12px 8px;
+            }
+
+            .qa-icon-wrap {
+                width: 38px;
+                height: 38px;
+            }
+
+            .trusted-section {
+                padding: 28px 0 24px;
+            }
+
+            .trusted-label {
+                font-size: 10px;
+                margin-bottom: 16px;
+            }
+
+            .marquee-item {
+                font-size: 15px;
+            }
+
+            .marquee-track {
+                gap: 36px;
+            }
+
+            .cta-band {
+                padding: 36px 0;
+            }
+
+            .why-card {
+                padding: 20px 16px;
+            }
+
+            .home-test-card {
+                padding: 18px 16px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <!-- Scroll Progress -->
+    <div class="scroll-progress" id="scrollProgress" aria-hidden="true"></div>
+    <a href="#main-content" class="skip-link">Skip to main content</a>
+
+    <!-- NAVBAR -->
+    <nav class="navbar" id="navbar" aria-label="Main navigation">
+        <div class="container">
+            <a href="index.html" class="logo" aria-label="Vianmax — Home">
+                <img src="assets/logo.png" alt="Vianmax" class="logo-img">
+            </a>
+            <div class="nav-links">
+                <a href="index.html" class="nav-link active">Home</a>
+                <a href="about.html" class="nav-link">About</a>
+                <a href="services.html" class="nav-link">Services</a>
+                <a href="training.html" class="nav-link">Training</a>
+                <a href="workshops.html" class="nav-link">Workshops</a>
+                <a href="contact.html" class="nav-cta">Get in Touch</a>
+            </div>
+            <button class="hamburger" id="hamburger" aria-label="Open navigation" aria-expanded="false"
+                aria-controls="mobileMenu">
+                <span></span><span></span><span></span>
+            </button>
+        </div>
+    </nav>
+
+    <!-- MOBILE MENU -->
+    <div class="mobile-menu" id="mobileMenu" role="dialog" aria-label="Mobile navigation" aria-modal="true">
+        <div class="mobile-menu-header">
+            <a href="index.html" class="logo"><img src="assets/logo.png" alt="Vianmax" class="logo-img"></a>
+            <button class="mobile-close" aria-label="Close navigation">&#10005;</button>
+        </div>
+        <nav class="mobile-nav">
+            <a href="index.html" class="mobile-nav-link active">Home <svg viewBox="0 0 24 24" fill="none"
+                    stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <path d="m9 18 6-6-6-6" />
+                </svg></a>
+            <a href="about.html" class="mobile-nav-link">About <svg viewBox="0 0 24 24" fill="none"
+                    stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <path d="m9 18 6-6-6-6" />
+                </svg></a>
+            <a href="services.html" class="mobile-nav-link">Services <svg viewBox="0 0 24 24" fill="none"
+                    stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <path d="m9 18 6-6-6-6" />
+                </svg></a>
+            <a href="training.html" class="mobile-nav-link">Training <svg viewBox="0 0 24 24" fill="none"
+                    stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <path d="m9 18 6-6-6-6" />
+                </svg></a>
+            <a href="workshops.html" class="mobile-nav-link">Workshops <svg viewBox="0 0 24 24" fill="none"
+                    stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <path d="m9 18 6-6-6-6" />
+                </svg></a>
+            <a href="contact.html" class="mobile-nav-link">Contact <svg viewBox="0 0 24 24" fill="none"
+                    stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <path d="m9 18 6-6-6-6" />
+                </svg></a>
+        </nav>
+        <div class="mobile-cta-wrap">
+            <a href="tel:+919363135599" class="btn btn-primary btn-full">Call Us Now</a>
+        </div>
+    </div>
+
+    <!-- MAIN -->
+    <main id="main-content">
+
+        <!-- HERO -->
+        <section class="hero" aria-label="Hero banner">
+            <div class="hero-main">
+
+                <!-- SLIDE 1 -->
+                <div class="slide active" aria-roledescription="slide" aria-label="Slide 1 of 3">
+                    <div class="slide-bg slide-bg-1"></div>
+                    <div class="slide-overlay"></div>
+                    <div class="hero-grid" aria-hidden="true"></div>
+                    <div class="hero-accent" aria-hidden="true"></div>
+                    <div class="hero-content-wrap">
+                        <div class="hero-eyebrow"><span class="hero-eyebrow-dot" aria-hidden="true"></span> Software ·
+                            Automation · Training</div>
+                        <h1>Where Vision<br>Becomes <span class="red">Reality</span></h1>
+                        <p class="hero-desc">We develop custom software, intelligent automation workflows, and algo
+                            trading systems — while empowering the next generation of engineers through expert-led
+                            training.</p>
+                        <div class="hero-tags">
+                            <span class="hero-tag-pill">Custom Software</span>
+                            <span class="hero-tag-pill">n8n Automation</span>
+                            <span class="hero-tag-pill">Algo Trading</span>
+                            <span class="hero-tag-pill">Mobile Apps</span>
+                            <span class="hero-tag-pill">Tech Training</span>
+                        </div>
+                        <div class="hero-actions">
+                            <a href="services.html" class="btn btn-primary">Explore Services <svg width="16" height="16"
+                                    viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"
+                                    stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                                    <path d="M5 12h14" />
+                                    <path d="m12 5 7 7-7 7" />
+                                </svg></a>
+                            <a href="contact.html" class="btn btn-outline-light">Get Consultation</a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- SLIDE 2 -->
+                <div class="slide" aria-roledescription="slide" aria-label="Slide 2 of 3">
+                    <div class="slide-bg slide-bg-2"></div>
+                    <div class="slide-overlay"></div>
+                    <div class="hero-grid" aria-hidden="true"></div>
+                    <div class="hero-accent" aria-hidden="true"></div>
+                    <div class="hero-content-wrap">
+                        <div class="hero-eyebrow"><span class="hero-eyebrow-dot" aria-hidden="true"></span> Algorithmic
+                            Trading Systems</div>
+                        <h1>High-Speed <span class="red">Trading</span><br>Engines Built<br>for <span
+                                class="stroke">Edge</span></h1>
+                        <p class="hero-desc">Python, C++, and C# powered low-latency trading systems. We build the
+                            infrastructure that gives your strategies a competitive advantage in live markets.</p>
+                        <div class="hero-tags">
+                            <span class="hero-tag-pill">Low Latency</span>
+                            <span class="hero-tag-pill">Python / C++</span>
+                            <span class="hero-tag-pill">Live Analytics</span>
+                        </div>
+                        <div class="hero-actions">
+                            <a href="services.html" class="btn btn-primary">See Our Work <svg width="16" height="16"
+                                    viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"
+                                    stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                                    <path d="M5 12h14" />
+                                    <path d="m12 5 7 7-7 7" />
+                                </svg></a>
+                            <a href="contact.html" class="btn btn-outline-light">Talk to Us</a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- SLIDE 3 -->
+                <div class="slide" aria-roledescription="slide" aria-label="Slide 3 of 3">
+                    <div class="slide-bg slide-bg-3"></div>
+                    <div class="slide-overlay"></div>
+                    <div class="hero-grid" aria-hidden="true"></div>
+                    <div class="hero-accent" aria-hidden="true"></div>
+                    <div class="hero-content-wrap">
+                        <div class="hero-eyebrow"><span class="hero-eyebrow-dot" aria-hidden="true"></span> Vianmax™
+                            Academy</div>
+                        <h1>Empowering<br><span class="red">Future</span><br><span class="stroke">Developers</span></h1>
+                        <p class="hero-desc">Practical, industry-led tech training programs that bridge the gap between
+                            academia and the real world. Hundreds of professionals trained across domains.</p>
+                        <div class="hero-tags">
+                            <span class="hero-tag-pill">Expert-led</span>
+                            <span class="hero-tag-pill">Hands-on</span>
+                            <span class="hero-tag-pill">Industry-ready</span>
+                        </div>
+                        <div class="hero-actions">
+                            <a href="training.html" class="btn btn-primary">Visit Academy <svg width="16" height="16"
+                                    viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"
+                                    stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                                    <path d="M5 12h14" />
+                                    <path d="m12 5 7 7-7 7" />
+                                </svg></a>
+                            <a href="contact.html" class="btn btn-outline-light">Learn More</a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="slide-nav" role="tablist" aria-label="Hero slides">
+                    <button class="slide-dot active" role="tab" aria-selected="true" aria-label="Slide 1"></button>
+                    <button class="slide-dot" role="tab" aria-selected="false" aria-label="Slide 2"></button>
+                    <button class="slide-dot" role="tab" aria-selected="false" aria-label="Slide 3"></button>
+                </div>
+            </div>
+        </section>
+
+        <!-- STATS -->
+        <div class="stats-band" aria-label="Company statistics">
+            <div class="stats-grid stats-grid-5">
+                <div class="stat-cell">
+                    <div class="stat-num" data-count="50">0</div>
+                    <div class="stat-label">People Surveyed (K+)</div>
+                </div>
+                <div class="stat-cell">
+                    <div class="stat-num" data-count="200">0</div>
+                    <div class="stat-label">Professionals Trained (K+)</div>
+                </div>
+                <div class="stat-cell">
+                    <div class="stat-num" data-count="50">0</div>
+                    <div class="stat-label">College Workshops</div>
+                </div>
+                <div class="stat-cell">
+                    <div class="stat-num" data-count="25">0</div>
+                    <div class="stat-label">Partner Colleges</div>
+                </div>
+                <div class="stat-cell">
+                    <div class="stat-num" data-count="120">0</div>
+                    <div class="stat-label">Projects Delivered</div>
+                </div>
+            </div>
+        </div>
+
+        <!-- QUICK ACCESS -->
+        <nav class="quick-access" aria-label="Quick access navigation">
+            <div class="container">
+                <div class="qa-label" aria-hidden="true">Quick Access</div>
+                <div class="qa-grid">
+                    <a href="services/service-custom-software.html" class="qa-card">
+                        <div class="qa-icon-wrap"><svg class="qa-icon" viewBox="0 0 24 24" fill="none"
+                                stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+                                <rect x="2" y="3" width="20" height="14" rx="2" />
+                                <line x1="8" y1="21" x2="16" y2="21" />
+                                <line x1="12" y1="17" x2="12" y2="21" />
+                            </svg></div>
+                        <span class="qa-label-text">Custom Software</span>
+                    </a>
+                    <a href="services/service-mobile-apps.html" class="qa-card">
+                        <div class="qa-icon-wrap"><svg class="qa-icon" viewBox="0 0 24 24" fill="none"
+                                stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+                                <rect x="5" y="2" width="14" height="20" rx="2" />
+                                <line x1="12" y1="18" x2="12.01" y2="18" />
+                            </svg></div>
+                        <span class="qa-label-text">Mobile Apps</span>
+                    </a>
+                    <a href="services/service-n8n-automation.html" class="qa-card">
+                        <div class="qa-icon-wrap"><svg class="qa-icon" viewBox="0 0 24 24" fill="none"
+                                stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+                                <polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2" />
+                            </svg></div>
+                        <span class="qa-label-text">Automation</span>
+                    </a>
+                    <a href="services/service-algo-trading.html" class="qa-card">
+                        <div class="qa-icon-wrap"><svg class="qa-icon" viewBox="0 0 24 24" fill="none"
+                                stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+                                <polyline points="22 7 13.5 15.5 8.5 10.5 2 17" />
+                                <polyline points="16 7 22 7 22 13" />
+                            </svg></div>
+                        <span class="qa-label-text">Algo Trading</span>
+                    </a>
+                    <a href="services/service-web-development.html" class="qa-card">
+                        <div class="qa-icon-wrap"><svg class="qa-icon" viewBox="0 0 24 24" fill="none"
+                                stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+                                <circle cx="12" cy="12" r="10" />
+                                <line x1="2" y1="12" x2="22" y2="12" />
+                                <path
+                                    d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z" />
+                            </svg></div>
+                        <span class="qa-label-text">Web Dev</span>
+                    </a>
+                    <a href="training.html" class="qa-card">
+                        <div class="qa-icon-wrap"><svg class="qa-icon" viewBox="0 0 24 24" fill="none"
+                                stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+                                <path d="M22 10v6M2 10l10-5 10 5-10 5z" />
+                                <path d="M6 12v5c3 3 9 3 12 0v-5" />
+                            </svg></div>
+                        <span class="qa-label-text">Training</span>
+                    </a>
+                    <a href="contact.html" class="qa-card">
+                        <div class="qa-icon-wrap"><svg class="qa-icon" viewBox="0 0 24 24" fill="none"
+                                stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+                                <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2" />
+                                <circle cx="9" cy="7" r="4" />
+                                <path d="M23 21v-2a4 4 0 0 0-3-3.87" />
+                                <path d="M16 3.13a4 4 0 0 1 0 7.75" />
+                            </svg></div>
+                        <span class="qa-label-text">Consulting</span>
+                    </a>
+                    <a href="contact.html" class="qa-card">
+                        <div class="qa-icon-wrap"><svg class="qa-icon" viewBox="0 0 24 24" fill="none"
+                                stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+                                <path
+                                    d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 013.07 8.81 19.79 19.79 0 01.07 2.24 2 2 0 012 .06h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L6.09 7.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0122 16.92z" />
+                            </svg></div>
+                        <span class="qa-label-text">Contact Us</span>
+                    </a>
+                    <a href="workshops.html" class="qa-card">
+                        <div class="qa-icon-wrap"><svg class="qa-icon" viewBox="0 0 24 24" fill="none"
+                                stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+                                <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2" />
+                                <circle cx="9" cy="7" r="4" />
+                                <path d="M23 21v-2a4 4 0 0 0-3-3.87" />
+                                <path d="M16 3.13a4 4 0 0 1 0 7.75" />
+                            </svg></div>
+                        <span class="qa-label-text">Workshops</span>
+                    </a>
+                </div>
+            </div>
+        </nav>
+
+        <!-- TRUSTED BY -->
+        <section class="trusted-section" aria-label="Trusted by leading organizations">
+            <div class="container">
+                <p class="trusted-label">Trusted by Industry Leaders</p>
+            </div>
+            <div class="marquee-wrap">
+                <div class="marquee-track">
+                    <span class="marquee-item">Vishwas Projects</span>
+                    <span class="marquee-item">S QTM</span>
+                    <span class="marquee-item">Cloud9 Club</span>
+                    <span class="marquee-item">TechVista Solutions</span>
+                    <span class="marquee-item">NexGen Analytics</span>
+                    <span class="marquee-item">DataForge Systems</span>
+                    <span class="marquee-item">Vishwas Projects</span>
+                    <span class="marquee-item">S QTM</span>
+                    <span class="marquee-item">Cloud9 Club</span>
+                    <span class="marquee-item">TechVista Solutions</span>
+                    <span class="marquee-item">NexGen Analytics</span>
+                    <span class="marquee-item">DataForge Systems</span>
+                </div>
+            </div>
+        </section>
+
+        <!-- ABOUT TEASER -->
+        <section class="section about-teaser" aria-labelledby="about-heading">
+            <div class="container">
+                <div class="about-grid">
+                    <div style="position:relative">
+                        <div class="about-visual reveal" role="img" aria-label="Code editor">
+                            <div class="about-visual-accent" aria-hidden="true"></div>
+                            <div class="code-block" aria-hidden="true">
+                                <div><span class="cmt">// Vianmax Core Engine</span></div>
+                                <div>&nbsp;</div>
+                                <div><span class="kw">class</span> <span class="fn">VianmaxSolutions</span> {</div>
+                                <div>&nbsp;&nbsp;<span class="kw">async</span> <span class="fn">build</span>(client) {
+                                </div>
+                                <div>&nbsp;&nbsp;&nbsp;&nbsp;<span class="kw">const</span> vision = <span
+                                        class="kw">await</span></div>
+                                <div>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span
+                                        class="fn">this</span>.understand(client);</div>
+                                <div>&nbsp;&nbsp;&nbsp;&nbsp;<span class="kw">return</span> <span
+                                        class="fn">this</span>.deliver({</div>
+                                <div>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;quality: <span class="str">"enterprise"</span>,
+                                </div>
+                                <div>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;latency: <span class="str">"ultra-low"</span>,
+                                </div>
+                                <div>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;support: <span class="str">"24/7"</span>,</div>
+                                <div>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;uptime: <span class="num">99.9</span></div>
+                                <div>&nbsp;&nbsp;&nbsp;&nbsp;});</div>
+                                <div>&nbsp;&nbsp;}</div>
+                                <div>}<span class="code-cursor"></span></div>
+                            </div>
+                        </div>
+                        <div class="about-badge">
+                            <div class="badge-num">5+</div>
+                            <div class="badge-lbl">Years of Innovation</div>
+                        </div>
+                    </div>
+                    <div>
+                        <div class="section-eyebrow">About Vianmax™</div>
+                        <h2 class="section-title" id="about-heading">Engineering Software That<br><span
+                                class="text-red">Delivers Results</span></h2>
+                        <p class="section-desc">We build for performance and scalability. Our solutions — from workflow
+                            automation to mobile apps and trading systems — are designed to drive efficiency and
+                            competitive advantage.</p>
+                        <div class="about-features">
+                            <div class="about-feat reveal">
+                                <div class="feat-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                        stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                        <polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2" />
+                                    </svg></div>
+                                <div>
+                                    <div class="feat-title">High-Performance Systems</div>
+                                    <p class="feat-desc">We architect low-latency, scalable software engineered for
+                                        demanding production environments.</p>
+                                </div>
+                            </div>
+                            <div class="about-feat reveal delay-1">
+                                <div class="feat-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                        stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                        <rect x="3" y="11" width="18" height="11" rx="2" ry="2" />
+                                        <path d="M7 11V7a5 5 0 0 1 10 0v4" />
+                                    </svg></div>
+                                <div>
+                                    <div class="feat-title">Secure &amp; Reliable</div>
+                                    <p class="feat-desc">Every solution is built with enterprise-grade security, tested
+                                        thoroughly before deployment.</p>
+                                </div>
+                            </div>
+                            <div class="about-feat reveal delay-2">
+                                <div class="feat-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                        stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                        <path d="M22 10v6M2 10l10-5 10 5-10 5z" />
+                                        <path d="M6 12v5c3 3 9 3 12 0v-5" />
+                                    </svg></div>
+                                <div>
+                                    <div class="feat-title">Academia Meets Industry</div>
+                                    <p class="feat-desc">Through Vianmax™ Academy, we bridge the gap between education
+                                        and real-world software engineering.</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div style="margin-top:28px"><a href="about.html" class="btn btn-text">Learn more about us <svg
+                                    width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                    stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                                    <path d="M5 12h14" />
+                                    <path d="m12 5 7 7-7 7" />
+                                </svg></a></div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- SERVICES TEASER -->
+        <section class="section services-teaser" aria-labelledby="svc-heading">
+            <div class="container" style="text-align:center">
+                <div class="section-eyebrow" style="justify-content:center">What We Do</div>
+                <h2 class="section-title" id="svc-heading">Innovative Solutions for a <span class="text-red">Connected
+                        Future</span></h2>
+                <p class="section-desc centered" style="margin-left:auto;margin-right:auto">Transforming industries with
+                    code and cutting-edge technology.</p>
+
+                <div class="services-teaser-grid">
+                    <div class="card reveal">
+                        <div class="card-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+                                <polyline points="16 18 22 12 16 6" />
+                                <polyline points="8 6 2 12 8 18" />
+                            </svg></div>
+                        <h3 class="card-title">Custom Software</h3>
+                        <p class="card-desc">Tailored software solutions built from scratch to solve your unique
+                            business challenges.</p>
+                        <div class="card-tags"><span class="card-tag">Python</span><span
+                                class="card-tag">C++</span><span class="card-tag">Node.js</span></div>
+                    </div>
+                    <div class="card reveal delay-1">
+                        <div class="card-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+                                <rect x="5" y="2" width="14" height="20" rx="2" />
+                                <line x1="12" y1="18" x2="12.01" y2="18" />
+                            </svg></div>
+                        <h3 class="card-title">Mobile Applications</h3>
+                        <p class="card-desc">Android and iOS apps that deliver seamless UX, scalability, and measurable
+                            impact.</p>
+                        <div class="card-tags"><span class="card-tag">Android</span><span
+                                class="card-tag">iOS</span><span class="card-tag">React Native</span></div>
+                    </div>
+                    <div class="card reveal delay-2">
+                        <div class="card-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+                                <polyline points="22 7 13.5 15.5 8.5 10.5 2 17" />
+                                <polyline points="16 7 22 7 22 13" />
+                            </svg></div>
+                        <h3 class="card-title">Algorithmic Trading</h3>
+                        <p class="card-desc">Low-latency, high-frequency trading infrastructure built in Python and C++.
+                        </p>
+                        <div class="card-tags"><span class="card-tag">Python</span><span
+                                class="card-tag">C++</span><span class="card-tag">HFT</span></div>
+                    </div>
+                    <div class="card reveal">
+                        <div class="card-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+                                <circle cx="12" cy="12" r="3" />
+                                <path
+                                    d="M12 1v2M12 21v2M4.22 4.22l1.42 1.42M18.36 18.36l1.42 1.42M1 12h2M21 12h2M4.22 19.78l1.42-1.42M18.36 5.64l1.42-1.42" />
+                            </svg></div>
+                        <h3 class="card-title">AI-Powered Automation</h3>
+                        <p class="card-desc">Intelligent automation with RPA, ML models, NLP, and computer vision —
+                            saving up to 70% processing time.</p>
+                        <div class="card-tags"><span class="card-tag">RPA</span><span class="card-tag">ML</span><span
+                                class="card-tag">NLP</span></div>
+                    </div>
+                    <div class="card reveal delay-1">
+                        <div class="card-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+                                <path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z" />
+                                <path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z" />
+                            </svg></div>
+                        <h3 class="card-title">LMS &amp; Educational Portals</h3>
+                        <p class="card-desc">Complete learning management systems for schools, colleges, and corporates
+                            with live classes and analytics.</p>
+                        <div class="card-tags"><span class="card-tag">React</span><span
+                                class="card-tag">Node.js</span><span class="card-tag">AWS</span></div>
+                    </div>
+                    <div class="card reveal delay-2">
+                        <div class="card-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+                                <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z" />
+                                <polyline points="14 2 14 8 20 8" />
+                                <line x1="16" y1="13" x2="8" y2="13" />
+                                <line x1="16" y1="17" x2="8" y2="17" />
+                            </svg></div>
+                        <h3 class="card-title">Survey Applications</h3>
+                        <p class="card-desc">Android survey apps with offline support, GPS tracking, and multi-language
+                            — 2M+ responses collected.</p>
+                        <div class="card-tags"><span class="card-tag">Android</span><span
+                                class="card-tag">Offline</span><span class="card-tag">GPS</span></div>
+                    </div>
+                </div>
+                <div style="text-align:center; margin-top:40px"><a href="services.html" class="btn btn-secondary">View
+                        All Services <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                            stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                            <path d="M5 12h14" />
+                            <path d="m12 5 7 7-7 7" />
+                        </svg></a></div>
+            </div>
+        </section>
+
+        <!-- WHY VIANMAX -->
+        <section class="section why-vianmax" aria-labelledby="why-heading">
+            <div class="container" style="text-align:center">
+                <div class="section-eyebrow" style="justify-content:center">Why Choose Us</div>
+                <h2 class="section-title" id="why-heading">What Makes Vianmax™ <span class="text-red">Different</span>
+                </h2>
+                <p class="section-desc centered" style="margin-left:auto;margin-right:auto">We combine startup agility
+                    with deep technical expertise to deliver solutions that truly matter.</p>
+                <div class="why-grid">
+                    <div class="why-card reveal">
+                        <div class="why-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+                                <path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z" />
+                            </svg></div>
+                        <h3 class="why-title">Startup Agility</h3>
+                        <p class="why-desc">Fast iterations, direct communication, and flexible engagement models. No
+                            bureaucracy — just results delivered at speed.</p>
+                    </div>
+                    <div class="why-card reveal delay-1">
+                        <div class="why-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+                                <path d="M16 18 22 12 16 6" />
+                                <path d="M8 6 2 12 8 18" />
+                                <line x1="12" y1="2" x2="12" y2="22" />
+                            </svg></div>
+                        <h3 class="why-title">Dual Expertise</h3>
+                        <p class="why-desc">We build <strong>and</strong> teach technology — our training programs keep
+                            us sharp, and our products make our teaching real.</p>
+                    </div>
+                    <div class="why-card reveal delay-2">
+                        <div class="why-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+                                <circle cx="12" cy="12" r="10" />
+                                <path d="M2 12h20" />
+                                <path
+                                    d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z" />
+                            </svg></div>
+                        <h3 class="why-title">Domain Specialists</h3>
+                        <p class="why-desc">Deep vertical expertise in FinTech, EdTech, Government, and Healthcare — not
+                            a generic dev shop, but true domain partners.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- TESTIMONIALS -->
+        <section class="section" style="background:var(--off-white)" aria-labelledby="home-test-heading">
+            <div class="container" style="text-align:center">
+                <p class="section-eyebrow reveal" style="justify-content:center">What Our Clients Say</p>
+                <h2 class="section-title reveal" id="home-test-heading">Trusted by Industry Leaders</h2>
+                <p class="section-desc centered reveal" style="margin-left:auto;margin-right:auto">Real results from
+                    real businesses — see what our clients have to say about working with Vianmax™.</p>
+                <div class="home-test-grid reveal delay-1">
+                    <div class="home-test-card">
+                        <div class="home-test-stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+                        <p class="home-test-text">"Vianmax™ helped us digitise our entire workflow with a custom ERP and
+                            field-force tracking app. Downtime dropped 40% in the first quarter."</p>
+                        <div class="home-test-author">
+                            <div class="home-test-avatar" style="background:linear-gradient(135deg,#E3001B,#ff4d6a)">R
+                            </div>
+                            <div>
+                                <div class="home-test-name">Mr. Rajesh</div>
+                                <div class="home-test-role">Director, Vishwas Projects</div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="home-test-card">
+                        <div class="home-test-stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+                        <p class="home-test-text">"Their algo-trading module processes thousands of ticks per second
+                            with rock-solid reliability. The ROI paid for the project within weeks."</p>
+                        <div class="home-test-author">
+                            <div class="home-test-avatar" style="background:linear-gradient(135deg,#111,#444)">M</div>
+                            <div>
+                                <div class="home-test-name">Mr. MM. Reddy</div>
+                                <div class="home-test-role">CEO, S QTM</div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="home-test-card">
+                        <div class="home-test-stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+                        <p class="home-test-text">"From branding to a full booking platform, Vianmax™ delivered
+                            end-to-end. Our online reservations jumped 60% after launch."</p>
+                        <div class="home-test-author">
+                            <div class="home-test-avatar" style="background:linear-gradient(135deg,#E3001B,#ff4d6a)">S
+                            </div>
+                            <div>
+                                <div class="home-test-name">Mr. Sam</div>
+                                <div class="home-test-role">Owner, Cloud9 Club</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- CTA -->
+        <section class="cta-band" aria-labelledby="cta-heading">
+            <div class="container">
+                <h2 id="cta-heading">Ready to Build Something <span style="color:var(--red)">Exceptional</span>?</h2>
+                <p>Let's transform your vision into reality. Our experts are ready to understand your needs and craft
+                    the right solution.</p>
+                <div class="btn-group">
+                    <a href="contact.html" class="btn btn-white">Get in Touch <svg width="16" height="16"
+                            viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"
+                            stroke-linecap="round" stroke-linejoin="round">
+                            <path d="M5 12h14" />
+                            <path d="m12 5 7 7-7 7" />
+                        </svg></a>
+                    <a href="services.html" class="btn btn-ghost-light">Explore Services</a>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- FOOTER -->
+    <footer role="contentinfo">
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-brand">
+                    <a href="index.html" aria-label="Vianmax — Home"><img src="assets/vianmax-logo-light-1.png" alt="Vianmax"
+                            class="logo-img"></a>
+                    <p>Delivering innovative, reliable software solutions that help businesses and communities grow,
+                        connect, and thrive globally.</p>
+
+                </div>
+                <div class="footer-col">
+                    <h4>Quick Links</h4>
+                    <ul class="footer-links">
+                        <li><a href="about.html">About Company</a></li>
+                        <li><a href="services.html">Our Services</a></li>
+                        <li><a href="training.html">Training</a></li>
+                        <li><a href="workshops.html">Workshops</a></li>
+                        <li><a href="contact.html">Contact Us</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4>Services</h4>
+                    <ul class="footer-links">
+                        <li><a href="services.html">Custom Software</a></li>
+                        <li><a href="services.html">Mobile Applications</a></li>
+                        <li><a href="services.html">Web Development</a></li>
+                        <li><a href="services.html">Algo Trading</a></li>
+                        <li><a href="services.html">n8n Automation</a></li>
+                        <li><a href="services.html">AI Automation</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4>Contact Us</h4>
+                    <div class="footer-contact-list">
+                        <a href="tel:+919363135599" class="footer-contact-link"><svg viewBox="0 0 24 24" fill="none"
+                                stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                <path
+                                    d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 013.07 8.81 19.79 19.79 0 01.07 2.24 2 2 0 012 .06h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L6.09 7.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0122 16.92z" />
+                            </svg> +91-9363135599</a>
+                        <a href="mailto:info@vianmax.com" class="footer-contact-link"><svg viewBox="0 0 24 24"
+                                fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                                stroke-linejoin="round">
+                                <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z" />
+                                <polyline points="22,6 12,13 2,6" />
+                            </svg> info@vianmax.com</a>
+                    </div>
+                    <div class="footer-social" aria-label="Social media">
+                        <a href="#" class="social-link" title="LinkedIn" aria-label="LinkedIn">in</a>
+                        <a href="#" class="social-link" title="X" aria-label="X">&#x1D54F;</a>
+                        <a href="#" class="social-link" title="Instagram" aria-label="Instagram"><svg width="13"
+                                height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                                stroke-linecap="round" stroke-linejoin="round">
+                                <rect x="2" y="2" width="20" height="20" rx="5" />
+                                <circle cx="12" cy="12" r="4" />
+                            </svg></a>
+                        <a href="#" class="social-link" title="YouTube" aria-label="YouTube"><svg width="13" height="13"
+                                viewBox="0 0 24 24" fill="currentColor">
+                                <path
+                                    d="M23 7s-.3-1.9-1.1-2.7c-1.1-1.1-2.3-1.1-2.9-1.2C16.2 3 12 3 12 3s-4.2 0-7 .1C4.3 3.2 3.1 3.2 2 4.3 1.2 5.1.9 7 .9 7S.6 9.2.6 11.3v2c0 2.1.3 4.3.3 4.3s.3 1.9 1.1 2.7c1.1 1.1 2.5 1 3.1 1.1C7 21.4 12 21.5 12 21.5s4.2 0 7-.2c.6-.1 1.8-.1 2.9-1.2.8-.8 1.1-2.7 1.1-2.7s.3-2.2.3-4.3v-2C23.3 9.2 23 7 23 7zM9.7 15.5V8.4l7.9 3.6-7.9 3.5z" />
+                            </svg></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <span>&copy; 2026 <a href="index.html">Vianmax™ Techno Ventures Pvt. Ltd.</a> All rights reserved.</span>
+            <div class="links"><a href="#">Privacy Policy</a><a href="#">Terms</a><a href="contact.html">Support</a>
+            </div>
+        </div>
+    </footer>
+
+    <!-- CHAT WIDGET -->
+    <div class="chat-widget">
+        <div class="chat-panel" id="chatPanel" role="dialog" aria-label="Chat with support">
+            <div class="chat-head">
+                <div class="chat-avatar"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                        stroke-linecap="round" stroke-linejoin="round">
+                        <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z" />
+                    </svg></div>
+                <div>
+                    <div class="chat-name">Vianmax™ Support</div>
+                    <div class="chat-status">&#9679; Online Now</div>
+                </div>
+            </div>
+            <p class="chat-msg">Hi there! How can we help you today?</p>
+            <div class="chat-options">
+                <a href="tel:+919363135599" class="chat-opt"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                        stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <path
+                            d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 013.07 8.81 19.79 19.79 0 01.07 2.24 2 2 0 012 .06h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L6.09 7.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0122 16.92z" />
+                    </svg> Call Us Now</a>
+                <a href="mailto:info@vianmax.com" class="chat-opt"><svg viewBox="0 0 24 24" fill="none"
+                        stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z" />
+                        <polyline points="22,6 12,13 2,6" />
+                    </svg> Email Us</a>
+                <a href="https://wa.me/919363135599" target="_blank" rel="noopener noreferrer" class="chat-opt"><svg
+                        viewBox="0 0 24 24" fill="currentColor" width="15" height="15">
+                        <path
+                            d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c-.001 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z" />
+                    </svg> WhatsApp Us</a>
+                <a href="contact.html" class="chat-opt"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                        stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z" />
+                    </svg> Get Consultation</a>
+            </div>
+        </div>
+        <button class="chat-toggle" id="chatToggle" aria-label="Open chat" aria-expanded="false"
+            aria-controls="chatPanel">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                stroke-linejoin="round">
+                <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z" />
+            </svg>
+        </button>
+    </div>
+
+    <!-- BACK TO TOP -->
+    <a href="#" class="back-top" id="backTop" aria-label="Back to top">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"
+            stroke-linejoin="round">
+            <path d="m18 15-6-6-6 6" />
+        </svg>
+    </a>
+
+    <!-- COOKIE -->
+    <div class="cookie-banner" id="cookieBanner" role="alert">
+        <div class="cookie-inner">
+            <p class="cookie-text">We use cookies to enhance your experience. By continuing to visit this site you agree
+                to our use of cookies. <a href="#">Learn more</a></p>
+            <div class="cookie-actions"><button class="cookie-accept" id="cookieAccept">Accept</button><button
+                    class="cookie-decline" id="cookieDecline">Decline</button></div>
+        </div>
+    </div>
+
+    <noscript>
+        <style>
+            .reveal {
+                opacity: 1 !important;
+                transform: none !important
+            }
+
+            .slide {
+                opacity: 0 !important
+            }
+
+            .slide:first-child {
+                opacity: 1 !important
+            }
+
+            .stat-num::after {
+                content: '+'
+            }
+        </style>
+    </noscript>
+
+    <script>
+        (function () {
+            'use strict';
+
+            // Scroll Progress
+            var sp = document.getElementById('scrollProgress');
+            function updateSP() { var t = window.scrollY, h = document.documentElement.scrollHeight - window.innerHeight; if (h > 0 && sp) sp.style.width = (t / h * 100) + '%'; }
+
+            // Slider
+            var curr = 0, slides = document.querySelectorAll('.slide'), dots = document.querySelectorAll('.slide-dot'), timer;
+            function goTo(n) { if (!slides.length || n === curr) return; slides[curr].classList.remove('active'); dots[curr].classList.remove('active'); dots[curr].setAttribute('aria-selected', 'false'); curr = n; slides[curr].classList.add('active'); dots[curr].classList.add('active'); dots[curr].setAttribute('aria-selected', 'true'); }
+            function next() { goTo((curr + 1) % slides.length) }
+            function startTimer() { clearInterval(timer); timer = setInterval(next, 3500); }
+            function stopTimer() { clearInterval(timer); timer = null; }
+            dots.forEach(function (d, i) { d.addEventListener('click', function () { goTo(i); startTimer(); }) });
+            if (slides.length) startTimer();
+            var hm = document.querySelector('.hero-main');
+            document.addEventListener('visibilitychange', function () { if (document.hidden) { stopTimer(); } else { startTimer(); } });
+
+            // Hero touch swipe
+            var touchStartX = 0, touchEndX = 0;
+            if (hm) {
+                hm.addEventListener('touchstart', function (e) { touchStartX = e.changedTouches[0].screenX; }, { passive: true });
+                hm.addEventListener('touchend', function (e) { touchEndX = e.changedTouches[0].screenX; var diff = touchStartX - touchEndX; if (Math.abs(diff) > 50) { if (diff > 0) next(); else goTo((curr - 1 + slides.length) % slides.length); } startTimer(); });
+            }
+
+            // Hero keyboard navigation
+            document.addEventListener('keydown', function (e) {
+                if (document.activeElement && document.activeElement.closest('.hero')) {
+                    if (e.key === 'ArrowRight') { next(); e.preventDefault(); }
+                    if (e.key === 'ArrowLeft') { goTo((curr - 1 + slides.length) % slides.length); e.preventDefault(); }
+                }
+            });
+
+            // Navbar
+            var nb = document.getElementById('navbar'), bt = document.getElementById('backTop');
+            function onScroll() { var y = window.scrollY; if (nb) nb.classList.toggle('scrolled', y > 60); if (bt) bt.classList.toggle('visible', y > 300); updateSP(); }
+            window.addEventListener('scroll', onScroll, { passive: true }); onScroll();
+
+            // Mobile Menu
+            var mm = document.getElementById('mobileMenu'), hb = document.getElementById('hamburger'), mc = mm ? mm.querySelector('.mobile-close') : null;
+            function toggleMenu() { if (!mm) return; var o = mm.classList.toggle('open'); document.body.style.overflow = o ? 'hidden' : ''; if (hb) hb.setAttribute('aria-expanded', o); }
+            if (hb) hb.addEventListener('click', toggleMenu);
+            if (mc) mc.addEventListener('click', toggleMenu);
+            if (mm) mm.querySelectorAll('.mobile-nav-link').forEach(function (a) { a.addEventListener('click', toggleMenu) });
+
+            // Chat
+            var cp = document.getElementById('chatPanel'), ct = document.getElementById('chatToggle');
+            function toggleChat() { if (!cp || !ct) return; var o = cp.classList.toggle('open'); ct.setAttribute('aria-expanded', o); }
+            if (ct) ct.addEventListener('click', toggleChat);
+
+            // Counter
+            function animateCount(el) { var target = parseInt(el.dataset.count, 10); if (isNaN(target)) return; var dur = 2000, start = performance.now(); function tick(ts) { var p = Math.min((ts - start) / dur, 1); var e = 1 - Math.pow(1 - p, 3); el.textContent = Math.floor(e * target) + (p < 1 ? '' : '+'); if (p < 1) requestAnimationFrame(tick); } requestAnimationFrame(tick); }
+            var counted = false;
+            var cObs = new IntersectionObserver(function (entries) { entries.forEach(function (e) { if (e.isIntersecting && !counted) { counted = true; document.querySelectorAll('[data-count]').forEach(animateCount); cObs.disconnect(); } }) }, { threshold: .5 });
+            var fs = document.querySelector('[data-count]'); if (fs) cObs.observe(fs);
+
+            // Reveal
+            var rObs = new IntersectionObserver(function (entries) { entries.forEach(function (e) { if (e.isIntersecting) { e.target.classList.add('visible'); rObs.unobserve(e.target); } }) }, { threshold: .12 });
+            document.querySelectorAll('.reveal').forEach(function (el) { rObs.observe(el) });
+
+
+            // Cookie
+            var cb = document.getElementById('cookieBanner'), ca = document.getElementById('cookieAccept'), cd = document.getElementById('cookieDecline');
+            function hideCookie() { if (cb) cb.classList.remove('show'); try { localStorage.setItem('vianmax_cookies', 'set') } catch (e) { } }
+            try { if (!localStorage.getItem('vianmax_cookies') && cb) setTimeout(function () { cb.classList.add('show') }, 2000) } catch (e) { }
+            if (ca) ca.addEventListener('click', hideCookie); if (cd) cd.addEventListener('click', hideCookie);
+
+            // Escape
+            document.addEventListener('keydown', function (e) { if (e.key === 'Escape') { if (mm && mm.classList.contains('open')) toggleMenu(); if (cp && cp.classList.contains('open')) toggleChat(); } });
+
+        })();
+    </script>
+</body>
+
+</html>

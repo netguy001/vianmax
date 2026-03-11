@@ -1,0 +1,487 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Android Survey Applications – Vianmax Techno Ventures</title>
+    <meta name="description"
+        content="Custom Android survey and data collection apps — offline-capable, GPS-tagged, multimedia capture, and real-time sync for field research by Vianmax.">
+    <meta name="robots" content="index, follow">
+    <link rel="canonical" href="https://www.vianmax.com/service-android-survey">
+    <meta name="theme-color" content="#E3001B">
+    <link rel="icon" type="image/png" href="../assets/favicon.png">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="../css/styles.css">
+    <style>
+        .svc-features-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(min(280px, 100%), 1fr));
+            gap: clamp(16px, 2vw, 24px);
+        }
+
+        .svc-feature-card {
+            background: var(--white);
+            border: 1px solid var(--border);
+            border-radius: var(--radius-lg);
+            padding: clamp(24px, 3vw, 36px) clamp(20px, 2.5vw, 28px);
+        }
+
+        .svc-feature-icon {
+            width: 48px;
+            height: 48px;
+            border-radius: var(--radius-md);
+            background: var(--red-subtle);
+            color: var(--red);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 16px;
+        }
+
+        .svc-feature-icon svg {
+            width: 22px;
+            height: 22px;
+        }
+
+        .svc-feature-title {
+            font-size: clamp(15px, 1.7vw, 17px);
+            font-weight: 700;
+            margin-bottom: 8px;
+        }
+
+        .svc-feature-desc {
+            font-size: 14px;
+            color: var(--text-secondary);
+            line-height: 1.7;
+        }
+
+        .process-steps {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(min(220px, 100%), 1fr));
+            gap: clamp(16px, 2vw, 24px);
+        }
+
+        .process-step {
+            background: var(--white);
+            border: 1px solid var(--border);
+            border-radius: var(--radius-lg);
+            padding: clamp(24px, 3vw, 32px) clamp(20px, 2.5vw, 28px);
+        }
+
+        .step-num {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            background: var(--red);
+            color: #fff;
+            font-weight: 800;
+            font-size: 16px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 16px;
+        }
+
+        .step-title {
+            font-size: 15px;
+            font-weight: 700;
+            margin-bottom: 8px;
+        }
+
+        .step-desc {
+            font-size: 13px;
+            color: var(--text-secondary);
+            line-height: 1.7;
+        }
+
+        .benefits-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 14px;
+        }
+
+        @media(max-width:600px) {
+            .benefits-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        .benefit-item {
+            display: flex;
+            align-items: flex-start;
+            gap: 12px;
+        }
+
+        .benefit-check {
+            width: 22px;
+            height: 22px;
+            border-radius: 50%;
+            background: var(--red-subtle);
+            color: var(--red);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-shrink: 0;
+            margin-top: 2px;
+        }
+
+        .benefit-check svg {
+            width: 12px;
+            height: 12px;
+        }
+
+        .benefit-text {
+            font-size: 14px;
+            color: var(--text-secondary);
+            line-height: 1.6;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="scroll-progress" id="scrollProgress" aria-hidden="true"></div>
+    <a href="#main-content" class="skip-link">Skip to main content</a>
+    <nav class="navbar" id="navbar" aria-label="Main navigation">
+        <div class="container">
+            <a href="../index.html" class="logo" aria-label="Vianmax — Home"><img src="../assets/logo.png" alt="Vianmax"
+                    class="logo-img"></a>
+            <div class="nav-links">
+                <a href="../index.html" class="nav-link">Home</a>
+                <a href="../about.html" class="nav-link">About</a>
+                <a href="../services.html" class="nav-link active">Services</a>
+                <a href="../training.html" class="nav-link">Training</a>
+                <a href="../workshops.html" class="nav-link">Workshops</a>
+                <a href="../contact.html" class="nav-cta">Get in Touch</a>
+            </div>
+            <button class="hamburger" id="hamburger" aria-label="Open navigation" aria-expanded="false"
+                aria-controls="mobileMenu"><span></span><span></span><span></span></button>
+        </div>
+    </nav>
+    <div class="mobile-menu" id="mobileMenu" role="dialog" aria-label="Mobile navigation" aria-modal="true">
+        <div class="mobile-menu-header"><a href="../index.html" class="logo"><img src="../assets/logo.png" alt="Vianmax"
+                    class="logo-img"></a><button class="mobile-close" aria-label="Close navigation">&#10005;</button>
+        </div>
+        <nav class="mobile-nav">
+            <a href="../index.html" class="mobile-nav-link">Home <svg viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                    stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <path d="m9 18 6-6-6-6" />
+                </svg></a>
+            <a href="../about.html" class="mobile-nav-link">About <svg viewBox="0 0 24 24" fill="none"
+                    stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <path d="m9 18 6-6-6-6" />
+                </svg></a>
+            <a href="../services.html" class="mobile-nav-link active">Services <svg viewBox="0 0 24 24" fill="none"
+                    stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <path d="m9 18 6-6-6-6" />
+                </svg></a>
+            <a href="../training.html" class="mobile-nav-link">Training <svg viewBox="0 0 24 24" fill="none"
+                    stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <path d="m9 18 6-6-6-6" />
+                </svg></a>
+            <a href="../workshops.html" class="mobile-nav-link">Workshops <svg viewBox="0 0 24 24" fill="none"
+                    stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <path d="m9 18 6-6-6-6" />
+                </svg></a>
+            <a href="../contact.html" class="mobile-nav-link">Contact <svg viewBox="0 0 24 24" fill="none"
+                    stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <path d="m9 18 6-6-6-6" />
+                </svg></a>
+        </nav>
+        <div class="mobile-cta-wrap"><a href="tel:+919363135599" class="btn btn-primary btn-full">Call Us Now</a></div>
+    </div>
+
+    <main id="main-content">
+        <section class="page-hero"
+            style="background:linear-gradient(135deg,rgba(17,17,19,.95),rgba(17,17,19,.88)),url('https://images.unsplash.com/photo-1551650975-87deedd944c3?w=1400&q=80') center/cover no-repeat;">
+            <div class="container">
+                <nav class="breadcrumb" aria-label="Breadcrumb">
+                    <a href="../index.html">Home</a><span class="sep" aria-hidden="true">/</span>
+                    <a href="../services.html">Services</a><span class="sep" aria-hidden="true">/</span>
+                    <span class="current">Android Survey Applications</span>
+                </nav>
+                <h1>Android Survey Applications</h1>
+                <p class="lead">Field-ready Android apps for data collection, market research, and audits —
+                    offline-first with GPS tagging, photo capture, digital signatures, and instant cloud sync when
+                    connectivity returns.</p>
+            </div>
+        </section>
+
+        <section class="section" style="background:var(--off-white)">
+            <div class="container">
+                <div class="section-eyebrow">App Features</div>
+                <h2 class="section-title">Survey App <span class="text-red">Capabilities</span></h2>
+                <p class="section-desc" style="max-width:640px;margin-bottom:clamp(32px,5vw,56px)">Designed for field
+                    agents, researchers, and auditors who need reliable data collection in any environment.</p>
+                <div class="svc-features-grid">
+                    <div class="svc-feature-card reveal">
+                        <div class="svc-feature-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                <path d="M5 12.55a11 11 0 0 1 14.08 0" />
+                                <path d="M1.42 9a16 16 0 0 1 21.16 0" />
+                                <path d="M8.53 16.11a6 6 0 0 1 6.95 0" />
+                                <line x1="12" y1="20" x2="12.01" y2="20" />
+                            </svg></div>
+                        <div class="svc-feature-title">Offline-First Data Collection</div>
+                        <p class="svc-feature-desc">All form responses, photos, and GPS coordinates stored locally on
+                            the device — works without internet and syncs automatically when back online.</p>
+                    </div>
+                    <div class="svc-feature-card reveal delay-1">
+                        <div class="svc-feature-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z" />
+                                <circle cx="12" cy="10" r="3" />
+                            </svg></div>
+                        <div class="svc-feature-title">GPS Geotagging</div>
+                        <p class="svc-feature-desc">Auto-attach precise GPS coordinates and address to every submission
+                            — view field agent locations and survey coverage on a live map dashboard.</p>
+                    </div>
+                    <div class="svc-feature-card reveal delay-2">
+                        <div class="svc-feature-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                <path
+                                    d="M23 19a2 2 0 0 1-2 2H3a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h4l2-3h6l2 3h4a2 2 0 0 1 2 2z" />
+                                <circle cx="12" cy="13" r="4" />
+                            </svg></div>
+                        <div class="svc-feature-title">Photo & Video Capture</div>
+                        <p class="svc-feature-desc">Capture and attach photos, videos, barcodes, and QR codes directly
+                            within survey questions — compressed and timestamped automatically.</p>
+                    </div>
+                    <div class="svc-feature-card reveal">
+                        <div class="svc-feature-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                <path d="M12 20h9" />
+                                <path d="M16.5 3.5a2.121 2.121 0 0 1 3 3L7 19l-4 1 1-4L16.5 3.5z" />
+                            </svg></div>
+                        <div class="svc-feature-title">Dynamic Form Builder</div>
+                        <p class="svc-feature-desc">Admin web portal to create complex forms — branching logic, skip
+                            patterns, validation rules, Likert scales, and multilingual support, all without code.</p>
+                    </div>
+                    <div class="svc-feature-card reveal delay-1">
+                        <div class="svc-feature-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2" />
+                                <circle cx="9" cy="7" r="4" />
+                                <path d="M23 21v-2a4 4 0 0 0-3-3.87" />
+                                <path d="M16 3.13a4 4 0 0 1 0 7.75" />
+                            </svg></div>
+                        <div class="svc-feature-title">Agent & Team Management</div>
+                        <p class="svc-feature-desc">Assign surveys to individual agents or teams, set quotas, track
+                            completion rates, and monitor real-time field activity from the supervisor dashboard.</p>
+                    </div>
+                    <div class="svc-feature-card reveal delay-2">
+                        <div class="svc-feature-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                <path d="M18 20V10" />
+                                <path d="M12 20V4" />
+                                <path d="M6 20v-6" />
+                            </svg></div>
+                        <div class="svc-feature-title">Analytics & Export</div>
+                        <p class="svc-feature-desc">Real-time response dashboards, cross-tabulation, and one-click
+                            export to Excel, CSV, SPSS, or API push to your data warehouse.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="section">
+            <div class="container">
+                <div class="section-eyebrow">Our Process</div>
+                <h2 class="section-title">From Form Design to <span class="text-red">Live Field</span></h2>
+                <p class="section-desc" style="max-width:600px;margin-bottom:clamp(32px,5vw,56px)">Fast deployment —
+                    most survey apps go live within 3–4 weeks from requirements sign-off.</p>
+                <div class="process-steps">
+                    <div class="process-step reveal">
+                        <div class="step-num">1</div>
+                        <div class="step-title">Requirement Scoping</div>
+                        <p class="step-desc">Define data points, form flow, offline requirements, and integrations —
+                            produce a detailed functional specification and app wireframes.</p>
+                    </div>
+                    <div class="process-step reveal delay-1">
+                        <div class="step-num">2</div>
+                        <div class="step-title">App & Portal Build</div>
+                        <p class="step-desc">Android app + web admin portal developed in parallel — agile sprints with
+                            test APKs distributed after each cycle for feedback.</p>
+                    </div>
+                    <div class="process-step reveal delay-2">
+                        <div class="step-num">3</div>
+                        <div class="step-title">Field Pilot</div>
+                        <p class="step-desc">Deploy with a small team of agents in real conditions — test offline
+                            behaviour, GPS accuracy, sync performance, and form usability.</p>
+                    </div>
+                    <div class="process-step reveal delay-3">
+                        <div class="step-num">4</div>
+                        <div class="step-title">Full Rollout & Training</div>
+                        <p class="step-desc">Scale to full agent team, Play Store (or enterprise) deployment, admin
+                            training, and field agent onboarding support.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="section" style="background:var(--off-white)">
+            <div class="container" style="max-width:840px">
+                <div class="section-eyebrow">Why Choose Us</div>
+                <h2 class="section-title">Key <span class="text-red">Benefits</span></h2>
+                <div class="benefits-grid" style="margin-top:clamp(28px,4vw,48px)">
+                    <div class="benefit-item reveal">
+                        <div class="benefit-check"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                stroke-width="3" stroke-linecap="round" stroke-linejoin="round">
+                                <polyline points="20 6 9 17 4 12" />
+                            </svg></div>
+                        <div class="benefit-text">Works in zero-connectivity field environments</div>
+                    </div>
+                    <div class="benefit-item reveal delay-1">
+                        <div class="benefit-check"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                stroke-width="3" stroke-linecap="round" stroke-linejoin="round">
+                                <polyline points="20 6 9 17 4 12" />
+                            </svg></div>
+                        <div class="benefit-text">Digital signatures + timestamped audit trail for compliance</div>
+                    </div>
+                    <div class="benefit-item reveal">
+                        <div class="benefit-check"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                stroke-width="3" stroke-linecap="round" stroke-linejoin="round">
+                                <polyline points="20 6 9 17 4 12" />
+                            </svg></div>
+                        <div class="benefit-text">Deployed to 5 or 5,000 agents — architecture scales cleanly</div>
+                    </div>
+                    <div class="benefit-item reveal delay-1">
+                        <div class="benefit-check"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                stroke-width="3" stroke-linecap="round" stroke-linejoin="round">
+                                <polyline points="20 6 9 17 4 12" />
+                            </svg></div>
+                        <div class="benefit-text">Multilingual form support for diverse field teams</div>
+                    </div>
+                    <div class="benefit-item reveal">
+                        <div class="benefit-check"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                stroke-width="3" stroke-linecap="round" stroke-linejoin="round">
+                                <polyline points="20 6 9 17 4 12" />
+                            </svg></div>
+                        <div class="benefit-text">Custom branding — your logo, your colours</div>
+                    </div>
+                    <div class="benefit-item reveal delay-1">
+                        <div class="benefit-check"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                stroke-width="3" stroke-linecap="round" stroke-linejoin="round">
+                                <polyline points="20 6 9 17 4 12" />
+                            </svg></div>
+                        <div class="benefit-text">Full source code ownership — no recurring data licensing fees</div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="section-sm" style="background:var(--dark);text-align:center;padding:clamp(40px,7vw,80px) 0;">
+            <div class="container">
+                <h2 class="section-title" style="color:#fff">Digitise Your <span class="text-red">Field
+                        Operations</span></h2>
+                <p class="section-desc centered" style="color:rgba(255,255,255,.45)">Tell us your data collection
+                    challenge — we'll show you how to solve it with a custom app.</p>
+                <a href="../contact.html" class="btn btn-primary">Get a Free Consultation <svg width="16" height="16"
+                        viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"
+                        stroke-linejoin="round">
+                        <path d="M5 12h14" />
+                        <path d="m12 5 7 7-7 7" />
+                    </svg></a>
+            </div>
+        </section>
+    </main>
+
+    <footer role="contentinfo">
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-brand"><a href="../index.html" aria-label="Vianmax — Home"><img
+                            src="../assets/vianmax-logo-light-1.png" alt="Vianmax" class="logo-img"></a>
+                    <p>Delivering innovative, reliable software solutions that help businesses grow, connect, and thrive
+                        globally.</p>
+                </div>
+                <div class="footer-col">
+                    <h4>Quick Links</h4>
+                    <ul class="footer-links">
+                        <li><a href="../about.html">About Company</a></li>
+                        <li><a href="../services.html">Our Services</a></li>
+                        <li><a href="../training.html">Training</a></li>
+                        <li><a href="../workshops.html">Workshops</a></li>
+                        <li><a href="../contact.html">Contact Us</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4>Services</h4>
+                    <ul class="footer-links">
+                        <li><a href="service-custom-software.html">Custom Software</a></li>
+                        <li><a href="service-mobile-apps.html">Mobile Applications</a></li>
+                        <li><a href="service-web-development.html">Web Development</a></li>
+                        <li><a href="service-algo-trading.html">Algo Trading</a></li>
+                        <li><a href="service-n8n-automation.html">n8n Automation</a></li>
+                        <li><a href="service-ai-automation.html">AI Automation</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4>Contact Us</h4>
+                    <div class="footer-contact-list"><a href="tel:+919363135599" class="footer-contact-link"><svg
+                                viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                                stroke-linecap="round" stroke-linejoin="round">
+                                <path
+                                    d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 013.07 8.81 19.79 19.79 0 01.07 2.24 2 2 0 012 .06h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L6.09 7.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0122 16.92z" />
+                            </svg> +91-9363135599</a><a href="mailto:info@vianmax.com" class="footer-contact-link"><svg
+                                viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                                stroke-linecap="round" stroke-linejoin="round">
+                                <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z" />
+                                <polyline points="22,6 12,13 2,6" />
+                            </svg> info@vianmax.com</a></div>
+                </div>
+            </div>
+        </div>
+        <div class="footer-bottom"><span>&copy; 2026 <a href="../index.html">Vianmax™ Techno Ventures Pvt. Ltd.</a> All
+                rights reserved.</span>
+            <div class="links"><a href="#">Privacy Policy</a><a href="#">Terms</a><a href="../contact.html">Support</a>
+            </div>
+        </div>
+    </footer>
+    <div class="chat-widget">
+        <div class="chat-panel" id="chatPanel" role="dialog" aria-label="Chat with support">
+            <div class="chat-head">
+                <div class="chat-avatar"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                        stroke-linecap="round" stroke-linejoin="round">
+                        <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z" />
+                    </svg></div>
+                <div>
+                    <div class="chat-name">Vianmax™ Support</div>
+                    <div class="chat-status">&#9679; Online Now</div>
+                </div>
+            </div>
+            <p class="chat-msg">Hi there! How can we help you today?</p>
+            <div class="chat-options"><a href="tel:+919363135599" class="chat-opt">Call Us Now</a><a
+                    href="mailto:info@vianmax.com" class="chat-opt">Email Us</a><a href="../contact.html"
+                    class="chat-opt">Get Consultation</a></div>
+        </div><button class="chat-toggle" id="chatToggle" aria-label="Open chat" aria-expanded="false"
+            aria-controls="chatPanel"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                stroke-linecap="round" stroke-linejoin="round">
+                <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z" />
+            </svg></button>
+    </div>
+    <a href="#" class="back-top" id="backTop" aria-label="Back to top"><svg viewBox="0 0 24 24" fill="none"
+            stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+            <path d="m18 15-6-6-6 6" />
+        </svg></a>
+    <div class="cookie-banner" id="cookieBanner" role="alert">
+        <div class="cookie-inner">
+            <p class="cookie-text">We use cookies to enhance your experience. <a href="#">Learn more</a></p>
+            <div class="cookie-actions"><button class="cookie-accept" id="cookieAccept">Accept</button><button
+                    class="cookie-decline" id="cookieDecline">Decline</button></div>
+        </div>
+    </div>
+    <noscript>
+        <style>
+            .reveal {
+                opacity: 1 !important;
+                transform: none !important
+            }
+        </style>
+    </noscript>
+    <script>(function () { var sp = document.getElementById('scrollProgress'); var nb = document.getElementById('navbar'), bt = document.getElementById('backTop'); function onScroll() { var y = window.scrollY; if (nb) nb.classList.toggle('scrolled', y > 60); if (bt) bt.classList.toggle('visible', y > 300); if (sp) { var h = document.documentElement.scrollHeight - window.innerHeight; if (h > 0) sp.style.width = (y / h * 100) + '%'; } } window.addEventListener('scroll', onScroll, { passive: true }); onScroll(); var mm = document.getElementById('mobileMenu'), hb = document.getElementById('hamburger'), mc = mm ? mm.querySelector('.mobile-close') : null; function toggleMenu() { if (!mm) return; var o = mm.classList.toggle('open'); document.body.style.overflow = o ? 'hidden' : ''; if (hb) hb.setAttribute('aria-expanded', o); } if (hb) hb.addEventListener('click', toggleMenu); if (mc) mc.addEventListener('click', toggleMenu); if (mm) mm.querySelectorAll('.mobile-nav-link').forEach(function (a) { a.addEventListener('click', toggleMenu) }); var cp = document.getElementById('chatPanel'), ct = document.getElementById('chatToggle'); if (ct) ct.addEventListener('click', function () { if (!cp || !ct) return; var o = cp.classList.toggle('open'); ct.setAttribute('aria-expanded', o); }); var rObs = new IntersectionObserver(function (entries) { entries.forEach(function (e) { if (e.isIntersecting) { e.target.classList.add('visible'); rObs.unobserve(e.target); } }) }, { threshold: .12 }); document.querySelectorAll('.reveal').forEach(function (el) { rObs.observe(el) }); var cb = document.getElementById('cookieBanner'), ca = document.getElementById('cookieAccept'), cd = document.getElementById('cookieDecline'); function hideCookie() { if (cb) cb.classList.remove('show'); try { localStorage.setItem('vianmax_cookies', 'set') } catch (e) { } } try { if (!localStorage.getItem('vianmax_cookies') && cb) setTimeout(function () { cb.classList.add('show') }, 2000) } catch (e) { } if (ca) ca.addEventListener('click', hideCookie); if (cd) cd.addEventListener('click', hideCookie); })();</script>
+</body>
+
+</html>
