@@ -255,6 +255,7 @@
             }
 
             .contact-form-wrap {
+                position: static;
                 padding: 32px 24px;
             }
         }
@@ -281,6 +282,10 @@
                 padding: 24px 18px;
             }
 
+            .form-row {
+                grid-template-columns: 1fr;
+            }
+
             .form-group label {
                 font-size: 13px;
             }
@@ -294,10 +299,6 @@
         }
 
         @media (max-width: 480px) {
-            .form-row {
-                grid-template-columns: 1fr;
-            }
-
             .contact-form-wrap {
                 padding: 20px 16px;
             }
@@ -608,8 +609,8 @@
         <div class="container">
             <div class="footer-grid">
                 <div class="footer-brand">
-                    <a href="index.html" aria-label="Vianmax — Home"><img src="assets/vianmax-logo-light-1.png" alt="Vianmax"
-                            class="logo-img"></a>
+                    <a href="index.html" aria-label="Vianmax — Home"><img src="assets/vianmax-logo-light-1.png"
+                            alt="Vianmax" class="logo-img"></a>
                     <p>Delivering innovative, reliable software solutions that help businesses grow, connect, and thrive
                         globally.</p>
 
