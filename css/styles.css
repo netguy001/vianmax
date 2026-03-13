@@ -101,6 +101,44 @@ body {
     background: var(--off-white);
 }
 
+/* ── Loader ── */
+#vmax-loader {
+    position: fixed;
+    z-index: 9999;
+    inset: 0;
+    background: rgba(255, 255, 255, 0.96);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: opacity 0.4s var(--ease), visibility 0.4s var(--ease);
+}
+
+#vmax-loader.vmax-loader-hide {
+    opacity: 0;
+    pointer-events: none;
+    visibility: hidden;
+}
+
+.vmax-spinner {
+    width: 56px;
+    height: 56px;
+    border: 6px solid var(--gray-200);
+    border-top: 6px solid var(--red);
+    border-radius: 50%;
+    animation: vmax-spin 1s linear infinite;
+    box-shadow: var(--shadow-md);
+}
+
+@keyframes vmax-spin {
+    0% {
+        transform: rotate(0deg);
+    }
+
+    100% {
+        transform: rotate(360deg);
+    }
+}
+
 ::-webkit-scrollbar-thumb {
     background: var(--gray-300);
     border-radius: 4px;
